@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
 public class Reversi {
-    private static int turn = 10;
-    private static int field[][] = new int[9][9];
+    static int turn[] = { 11 };
+    static int field[][] = new int[9][9];
+    static Scanner stdIn = new Scanner(System.in);
 
     static void init() {
         for (int i = 0; i < 9; i++) {
@@ -39,59 +40,82 @@ public class Reversi {
         System.out.println(" ");
     }
 
-    static void checkField(int x, int y, int turn) {
+    private static void findVoidPath(int x, int y, int turn[]) {
         if (field[y][x] == 0) {
-            field[y][x] = turn;
+            field[y][x] = turn[0];
         } else {
             System.out.println("既に置かれています");
-            return;
+        }
+    }
+
+    private static void insideOut(int x, int y, int turn[]) {
+        int xRight = 8 - x;
+        int xLeft = x - 1;
+        int yUp = y - 1;
+        int yDown = 8 - y;
+        // x軸のチェック
+        if (x == 1 || x == 2) {
+
+        } else if (x == 7 || x == 8) {
+        } else {
+            // x軸左
+            for (int i = 1; i < xLeft + 1; i++) {
+                if (field[y][x - i] == turn[0]) {
+                    for (int l = 1; l < i; l++) {
+                        field[y][x - l] = turn[0];
+                    }
+                    break;
+                }
+                System.out.println("fjejfiejf");
+            }
+            // x軸右
+            for (int i = 1; i < xRight + 1; i++) {
+                if (field[y][x + i] == turn[0]) {
+                    for (int l = 1; l < i; l++) {
+                        field[y][x + l] = turn[0];
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
+    static void checkField(int x, int y, int turn[]) {
+        findVoidPath(x, y, turn);
+        insideOut(x, y, turn);
+    }
+
+    static void changeTurn(int turn[]) {
+        if (turn[0] == 11) {
+            turn[0] = 10;
+        } else {
+            turn[0] = 11;
+        }
+    }
+
+    static void io(int turn[]) {
+        try {
+            showTable(field);
+            if (turn[0] == 11) {
+                System.out.println("白の番です");
+            } else {
+                System.out.println("黒の番です");
+            }
+            System.out.println("x座標を入力");
+            int x = stdIn.nextInt();
+            System.out.println("y座標を入力");
+            int y = stdIn.nextInt();
+            checkField(x, y, turn);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("正しく座標を入力してください");
         }
     }
 
     public static void main(String[] args) {
-        Scanner stdIn = new Scanner(System.in);
         init();
         do {
-            switch (turn) {
-            case 10:
-                try {
-                    showTable(field);
-                    System.out.println("白の番です");
-                    System.out.println("x座標を入力");
-                    int x = stdIn.nextInt();
-                    System.out.println("y座標を入力");
-                    int y = stdIn.nextInt();
-                    checkField(x, y, turn);
-                    if (turn == 10) {
-                        turn = 11;
-                    } else {
-                        turn = 10;
-                    }
-                    break;
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("正しく座標を入力してください");
-                    break;
-                }
-            case 11:
-                try {
-                    showTable(field);
-                    System.out.println("黒の番です");
-                    System.out.println("x座標を入力");
-                    int a = stdIn.nextInt();
-                    System.out.println("y座標を入力");
-                    int b = stdIn.nextInt();
-                    checkField(a, b, turn);
-                    if (turn == 10) {
-                        turn = 11;
-                    } else {
-                        turn = 10;
-                    }
-                    break;
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("正しく座標を入力してください");
-                    break;
-                }
-            }
+            io(turn);
+            changeTurn(turn);
         } while (true);
     }
 }
