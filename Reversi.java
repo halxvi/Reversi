@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Reversi {
     private static int turn[] = { 11 };
     private static int field[][] = new int[9][9];
+    // private static int putAddress[] = {};
     private static Scanner stdIn = new Scanner(System.in);
 
     static void init() {
@@ -40,11 +41,13 @@ public class Reversi {
         System.out.println(" ");
     }
 
-    private static void findVoidPath(int x, int y, int turn[]) {
+    private static boolean findVoidPath(int x, int y, int turn[]) {
         if (field[y][x] == 0) {
             field[y][x] = turn[0];
+            return true;
         } else {
             System.out.println("既に置かれています");
+            return false;
         }
     }
 
@@ -92,7 +95,6 @@ public class Reversi {
                 }
             }
         }
-
         // y軸
         if (y == 1 || y == 2) {
             for (int i = 1; i < yDown + 1; i++) {
@@ -132,11 +134,83 @@ public class Reversi {
                 }
             }
         }
+
+        // ななめ
+        if (y == 1 || y == 2) {
+            for (int i = 1; i < yDown + 1; i++) {
+                // y右下
+                if (field[y + i][x + i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y + k][x + k] = turn[0];
+                    }
+                    break;
+                }
+                // y左下
+                if (field[y + i][x - i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y + k][x - k] = turn[0];
+                    }
+                    break;
+                }
+            }
+        } else if (y == 7 || y == 8) {
+            for (int i = 1; i < yUp + 1; i++) {
+                // y右上
+                if (field[y - i][x + i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y - k][x + k] = turn[0];
+                    }
+                    break;
+                }
+                // y左上
+                if (field[y - i][x - i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y - k][x - k] = turn[0];
+                    }
+                    break;
+                }
+            }
+        } else {
+            for (int i = 1; i < yUp + 1; i++) {
+                // y右上
+                if (field[y - i][x + i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y - k][x + k] = turn[0];
+                    }
+                    break;
+                }
+                // y左上
+                if (field[y - i][x - i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y - k][x - k] = turn[0];
+                    }
+                    break;
+                }
+            }
+            for (int i = 1; i < yDown + 1; i++) {
+                // y右下
+                if (field[y + i][x + i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y + k][x + k] = turn[0];
+                    }
+                    break;
+                }
+                // y左下
+                if (field[y + i][x - i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y + k][x - k] = turn[0];
+                    }
+                    break;
+                }
+            }
+        }
     }
 
     static void checkField(int x, int y, int turn[]) {
-        findVoidPath(x, y, turn);
-        insideOut(x, y, turn);
+        if (findVoidPath(x, y, turn)) {
+            insideOut(x, y, turn);
+            changeTurn(turn);
+        }
     }
 
     static void changeTurn(int turn[]) {
@@ -169,7 +243,6 @@ public class Reversi {
         init();
         do {
             io(turn);
-            changeTurn(turn);
         } while (true);
     }
 }
