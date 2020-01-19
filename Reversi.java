@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class Reversi {
-    static int turn[] = { 11 };
-    static int field[][] = new int[9][9];
-    static Scanner stdIn = new Scanner(System.in);
+    private static int turn[] = { 11 };
+    private static int field[][] = new int[9][9];
+    private static Scanner stdIn = new Scanner(System.in);
 
     static void init() {
         for (int i = 0; i < 9; i++) {
@@ -55,24 +55,78 @@ public class Reversi {
         int yDown = 8 - y;
         // x軸のチェック
         if (x == 1 || x == 2) {
-
+            for (int i = 1; i < xRight + 1; i++) {
+                if (field[y][x + i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y][x + k] = turn[0];
+                    }
+                    break;
+                }
+            }
         } else if (x == 7 || x == 8) {
+            for (int i = 1; i < xLeft + 1; i++) {
+                if (field[y][x - i] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y][x - k] = turn[0];
+                    }
+                    break;
+                }
+            }
         } else {
             // x軸左
             for (int i = 1; i < xLeft + 1; i++) {
                 if (field[y][x - i] == turn[0]) {
-                    for (int l = 1; l < i; l++) {
-                        field[y][x - l] = turn[0];
+                    for (int k = 1; k < i; k++) {
+                        field[y][x - k] = turn[0];
                     }
                     break;
                 }
-                System.out.println("fjejfiejf");
             }
             // x軸右
             for (int i = 1; i < xRight + 1; i++) {
                 if (field[y][x + i] == turn[0]) {
-                    for (int l = 1; l < i; l++) {
-                        field[y][x + l] = turn[0];
+                    for (int k = 1; k < i; k++) {
+                        field[y][x + k] = turn[0];
+                    }
+                    break;
+                }
+            }
+        }
+
+        // y軸
+        if (y == 1 || y == 2) {
+            for (int i = 1; i < yDown + 1; i++) {
+                if (field[y + i][x] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y + k][x] = turn[0];
+                    }
+                    break;
+                }
+            }
+        } else if (y == 7 || y == 8) {
+            for (int i = 1; i < yUp + 1; i++) {
+                if (field[y - i][x] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y - k][x] = turn[0];
+                    }
+                    break;
+                }
+            }
+        } else {
+            // y軸上
+            for (int i = 1; i < yUp + 1; i++) {
+                if (field[y - i][x] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y - k][x] = turn[0];
+                    }
+                    break;
+                }
+            }
+            // y軸下
+            for (int i = 1; i < yDown + 1; i++) {
+                if (field[y + i][x] == turn[0]) {
+                    for (int k = 1; k < i; k++) {
+                        field[y + k][x] = turn[0];
                     }
                     break;
                 }
