@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 class Reversi {
@@ -23,12 +24,15 @@ class Reversi {
             field[0][i] = i;
             field[i][0] = i;
         }
+        // x0y0
+        field[0][0] = 30;
     }
 
     static void showTable(final int array[][]) {
+        System.out.println("------------------------------");
         for (int m = 0; m < 9; m++) {
             for (int t = 0; t < 9; t++) {
-                if (array[m][t] == 0) {
+                if (array[m][t] == 0 || array[m][t] == 30) {
                     System.out.print("   ");
                 } else if (array[m][t] == 10) {
                     System.out.print(" B ");
@@ -42,10 +46,10 @@ class Reversi {
             }
             System.out.println(" ");
         }
-        System.out.println(" ");
+        System.out.println("------------------------------");
     }
 
-    private static boolean findVoidPath(final int x, final int y, final int turn[]) {
+    private static boolean findVoidPath(final int x, final int y) {
         if (field[y][x] == 0 || field[y][x] == 20) {
             return true;
         } else {
@@ -65,84 +69,112 @@ class Reversi {
         clearFieldPath();
         for (int y = 1; y < 9; y++) {
             for (int x = 1; x < 9; x++) {
-                if (field[y][x] == turn[0]) {
+                int xRight = 8 - x;
+                int xLeft = x - 1;
+                int yUp = y - 1;
+                int yDown = 8 - y;
+                if (field[y][x] == 0) {
                     // x右
-                    if (x + 2 < 9) {
-                        if (!findVoidPath(x, y, turn) && field[y][x + 1] == f) {
-                            if (findVoidPath(x + 2, y, turn)) {
-                                xPathList.add(x + 2);
-                                yPathList.add(y);
-                                field[y][x + 2] = 20;
+                    if (xRight > 0) {
+                        if (!findVoidPath(x + 1, y) && field[y][x + 1] == f) {
+                            for (int i = 1; i < xRight + 1; i++) {
+                                if (!findVoidPath(x + i, y) && field[y][x + i] == turn[0]) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                }
                             }
                         }
                     }
                     // x左
-                    if (x - 2 > 0) {
-                        if (!findVoidPath(x, y, turn) && field[y][x - 1] == f) {
-                            if (findVoidPath(x - 2, y, turn)) {
-                                xPathList.add(x - 2);
-                                yPathList.add(y);
-                                field[y][x - 2] = 20;
+                    if (xLeft > 0) {
+                        if (!findVoidPath(x - 1, y) && field[y][x - 1] == f) {
+                            for (int i = 1; i < xLeft + 1; i++) {
+                                if (!findVoidPath(x - i, y) && field[y][x - i] == turn[0]) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                }
                             }
                         }
                     }
                     // y上
-                    if (y - 2 > 0) {
-                        if (!findVoidPath(x, y, turn) && field[y - 1][x] == f) {
-                            if (findVoidPath(x, y - 2, turn)) {
-                                xPathList.add(x);
-                                yPathList.add(y - 2);
-                                field[y - 2][x] = 20;
+                    if (yUp > 0) {
+                        if (!findVoidPath(x, y - 1) && field[y - 1][x] == f) {
+                            for (int i = 1; i < yUp + 1; i++) {
+                                if (!findVoidPath(x, y - i) && field[y - i][x] == turn[0]) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                }
                             }
                         }
                     }
                     // y下
-                    if (y + 2 < 9) {
-                        if (!findVoidPath(x, y, turn) && field[y + 1][x] == f) {
-                            if (findVoidPath(x, y + 2, turn)) {
-                                xPathList.add(x);
-                                yPathList.add(y + 2);
-                                field[y + 2][x] = 20;
+                    if (yDown > 0) {
+                        if (!findVoidPath(x, y + 1) && field[y + 1][x] == f) {
+                            for (int i = 1; i < yDown + 1; i++) {
+                                if (!findVoidPath(x, y + i) && field[y + i][x] == turn[0]) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                }
                             }
                         }
                     }
                     // y右上
-                    if (y - 2 > 0 && x + 2 < 9) {
-                        if (!findVoidPath(x, y, turn) && field[y - 1][x + 1] == f) {
-                            if (findVoidPath(x + 2, y - 2, turn)) {
-                                xPathList.add(x + 2);
-                                yPathList.add(y - 2);
-                                field[y - 2][x + 2] = 20;
+                    if (yUp > 0 && xRight > 0) {
+                        if (!findVoidPath(x + 1, y - 1) && field[y - 1][x + 1] == f) {
+                            for (int i = 1; i < yUp + 1; i++) {
+                                for (int a = 1; a < xRight + 1; a++) {
+                                    if (!findVoidPath(x + a, y - i) && field[y - i][x + a] == turn[0]) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    }
+                                }
                             }
                         }
                     }
                     // y左上
-                    if (y - 2 > 0 && x - 2 > 0) {
-                        if (!findVoidPath(x, y, turn) && field[y - 1][x - 1] == f) {
-                            if (findVoidPath(x - 2, y - 2, turn)) {
-                                xPathList.add(x - 2);
-                                yPathList.add(y - 2);
-                                field[y - 2][x - 2] = 20;
+                    if (yUp > 0 && xLeft > 0) {
+                        if (!findVoidPath(x - 1, y - 1) && field[y - 1][x - 1] == f) {
+                            for (int i = 1; i < yUp + 1; i++) {
+                                for (int a = 1; a < xLeft + 1; a++) {
+                                    if (!findVoidPath(x - a, y - i) && field[y - i][x - a] == turn[0]) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    }
+                                }
                             }
                         }
                     }
                     // y右下
-                    if (y + 2 < 9 && x + 2 < 9) {
-                        if (!findVoidPath(x, y, turn) && field[y + 1][x + 1] == f) {
-                            if (findVoidPath(x + 2, y + 2, turn)) {
-                                xPathList.add(x + 2);
-                                yPathList.add(y + 2);
-                                field[y + 2][x + 2] = 20;
+                    if (yDown > 0 && xRight > 0) {
+                        if (!findVoidPath(x + 1, y + 1) && field[y + 1][x + 1] == f) {
+                            for (int i = 1; i < yDown + 1; i++) {
+                                for (int a = 1; a < xRight + 1; a++) {
+                                    if (!findVoidPath(x + a, y + i) && field[y + i][x + a] == turn[0]) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    }
+                                }
                             }
                         }
                     }
                     // y左下
-                    if (y + 2 < 9 && x - 2 > 0) {
-                        if (!findVoidPath(x, y, turn) && field[y + 1][x - 1] == f) {
-                            if (findVoidPath(x - 2, y + 2, turn)) {
-                                xPathList.add(x - 2);
-                                yPathList.add(y + 2);
-                                field[y + 2][x - 2] = 20;
+                    if (yDown > 0 && xLeft > 0) {
+                        if (!findVoidPath(x - 1, y + 1) && field[y + 1][x - 1] == f) {
+                            for (int i = 1; i < yDown + 1; i++) {
+                                for (int a = 1; a < xLeft + 1; a++) {
+                                    if (!findVoidPath(x - a, y + i) && field[y + i][x - a] == turn[0]) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    }
+                                }
                             }
                         }
                     }
@@ -151,12 +183,11 @@ class Reversi {
         }
     }
 
-    private static void insideOut(final int x, final int y, final int turn[]) {
+    private static void flip(final int x, final int y, final int turn[]) {
         final int xRight = 8 - x;
         final int xLeft = x - 1;
         final int yUp = y - 1;
         final int yDown = 8 - y;
-        // final int cross
         // 該当駒を置く
         field[y][x] = turn[0];
         // x軸のチェック
@@ -164,7 +195,9 @@ class Reversi {
             for (int i = 1; i < xRight + 1; i++) {
                 if (field[y][x + i] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y][x + k] = turn[0];
+                        if (findVoidPath(x + k, y)) {
+                            field[y][x + k] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -173,7 +206,9 @@ class Reversi {
             for (int i = 1; i < xLeft + 1; i++) {
                 if (field[y][x - i] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y][x - k] = turn[0];
+                        if (findVoidPath(x - k, y)) {
+                            field[y][x - k] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -183,7 +218,9 @@ class Reversi {
             for (int i = 1; i < xLeft + 1; i++) {
                 if (field[y][x - i] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y][x - k] = turn[0];
+                        if (findVoidPath(x - k, y)) {
+                            field[y][x - k] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -192,7 +229,9 @@ class Reversi {
             for (int i = 1; i < xRight + 1; i++) {
                 if (field[y][x + i] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y][x + k] = turn[0];
+                        if (findVoidPath(x + k, y)) {
+                            field[y][x + k] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -203,7 +242,9 @@ class Reversi {
             for (int i = 1; i < yDown + 1; i++) {
                 if (field[y + i][x] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y + k][x] = turn[0];
+                        if (findVoidPath(x, y + k)) {
+                            field[y + k][x] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -212,7 +253,9 @@ class Reversi {
             for (int i = 1; i < yUp + 1; i++) {
                 if (field[y - i][x] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y - k][x] = turn[0];
+                        if (findVoidPath(x, y - k)) {
+                            field[y - k][x] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -222,7 +265,9 @@ class Reversi {
             for (int i = 1; i < yUp + 1; i++) {
                 if (field[y - i][x] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y - k][x] = turn[0];
+                        if (findVoidPath(x, y - k)) {
+                            field[y - k][x] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -231,7 +276,9 @@ class Reversi {
             for (int i = 1; i < yDown + 1; i++) {
                 if (field[y + i][x] == turn[0]) {
                     for (int k = 1; k < i; k++) {
-                        field[y + k][x] = turn[0];
+                        if (findVoidPath(x, y + k)) {
+                            field[y + k][x] = turn[0];
+                        }
                     }
                     break;
                 }
@@ -245,7 +292,9 @@ class Reversi {
                     // y右下
                     if (field[y + i][x + r] == turn[0]) {
                         for (int k = 1; k < r; k++) {
-                            field[y + k][x + k] = turn[0];
+                            if (findVoidPath(x + k, y + k)) {
+                                field[y + k][x + k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -254,7 +303,9 @@ class Reversi {
                     // y左下
                     if (field[y + i][x - n] == turn[0]) {
                         for (int k = 1; k < n; k++) {
-                            field[y + k][x - k] = turn[0];
+                            if (findVoidPath(x - k, y + k)) {
+                                field[y + k][x - k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -267,7 +318,9 @@ class Reversi {
                     // y右上
                     if (field[y - i][x + r] == turn[0]) {
                         for (int k = 1; k < i; k++) {
-                            field[y - k][x + k] = turn[0];
+                            if (findVoidPath(x + k, y - k)) {
+                                field[y - k][x + k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -276,7 +329,9 @@ class Reversi {
                     // y左上
                     if (field[y - i][x - n] == turn[0]) {
                         for (int k = 1; k < i; k++) {
-                            field[y - k][x - k] = turn[0];
+                            if (findVoidPath(x - k, y - k)) {
+                                field[y - k][x - k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -288,7 +343,9 @@ class Reversi {
                     // y右上
                     if (field[y - i][x + r] == turn[0]) {
                         for (int k = 1; k < i; k++) {
-                            field[y - k][x + k] = turn[0];
+                            if (findVoidPath(x + k, y - k)) {
+                                field[y - k][x + k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -297,7 +354,9 @@ class Reversi {
                     // y左上
                     if (field[y - i][x - n] == turn[0]) {
                         for (int k = 1; k < i; k++) {
-                            field[y - k][x - k] = turn[0];
+                            if (findVoidPath(x - k, y - k)) {
+                                field[y - k][x - k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -308,7 +367,9 @@ class Reversi {
                     // y右下
                     if (field[y + i][x + r] == turn[0]) {
                         for (int k = 1; k < r; k++) {
-                            field[y + k][x + k] = turn[0];
+                            if (findVoidPath(x + k, y + k)) {
+                                field[y + k][x + k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -317,7 +378,9 @@ class Reversi {
                     // y左下
                     if (field[y + i][x - n] == turn[0]) {
                         for (int k = 1; k < n; k++) {
-                            field[y + k][x - k] = turn[0];
+                            if (findVoidPath(x - k, y + k)) {
+                                field[y + k][x - k] = turn[0];
+                            }
                         }
                         break;
                     }
@@ -340,8 +403,6 @@ class Reversi {
     static boolean checkPath(int x, int y) {
         boolean flag = false;
         for (int i = 0; i < xPathList.size(); i++) {
-            System.out.println(i + " : " + xPathList.get(i));
-            System.out.println(i + " : " + yPathList.get(i));
             if (xPathList.get(i) == x && yPathList.get(i) == y) {
                 flag = true;
             }
@@ -350,14 +411,14 @@ class Reversi {
     }
 
     static void checkField(final int x, final int y, final int turn[]) {
-        if (findVoidPath(x, y, turn) && checkPath(x, y)) {
-            insideOut(x, y, turn);
-            changeTurn(turn);
+        if (x <= 0 || x >= 9 || y <= 0 || y >= 9) {
+            System.out.println("--------------------------");
+            System.out.println("正しく座標を入力してください");
+            System.out.println("--------------------------");
             return;
-        } else {
-            System.out.println("--------------------------");
-            System.out.println("正しい場所を指定してください");
-            System.out.println("--------------------------");
+        } else if (findVoidPath(x, y) && checkPath(x, y)) {
+            flip(x, y, turn);
+            changeTurn(turn);
             return;
         }
     }
@@ -370,31 +431,130 @@ class Reversi {
         }
     }
 
+    static boolean passCheck() {
+        boolean flag = false;
+        if (xPathList.size() == 0) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    static boolean winCheck() {
+        boolean flag = false;
+        int counter = 0;
+        for (int i = 1; i < 9; i++) {
+            for (int r = 1; r < 9; r++) {
+                if (field[i][r] == 0 || field[i][r] == 20) {
+                    counter += 1;
+                }
+            }
+        }
+        if (counter == 0) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    static void sumField() {
+        int w = 0;
+        int b = 0;
+        for (int i = 1; i < 9; i++) {
+            for (int r = 1; r < 9; r++) {
+                if (field[i][r] == 10) {
+                    b += 1;
+                }
+                if (field[i][r] == 11) {
+                    w += 1;
+                }
+            }
+        }
+        if (w > b) {
+            System.out.println("--------------------------");
+            System.out.println("白" + w + "個");
+            System.out.println("黒" + b + "個");
+            System.out.println("白の勝利です！");
+            System.out.println("--------------------------");
+        } else if (w < b) {
+            System.out.println("--------------------------");
+            System.out.println("白" + w + "個");
+            System.out.println("黒" + b + "個");
+            System.out.println("黒の勝利です！");
+            System.out.println("--------------------------");
+        } else {
+            System.out.println("--------------------------");
+            System.out.println("白" + w + "個");
+            System.out.println("黒" + b + "個");
+            System.out.println("引き分けです！");
+            System.out.println("--------------------------");
+        }
+    }
+
     static void io(int turn[]) {
+        // int x = x();
+        // int y = y();
         try {
             if (turn[0] == 11) {
                 System.out.println("白の番です");
             } else {
                 System.out.println("黒の番です");
             }
+            System.out.println("--------------------------");
             System.out.println("x座標を入力");
             final int x = stdIn.nextInt();
+            System.out.println("--------------------------");
             System.out.println("y座標を入力");
             final int y = stdIn.nextInt();
-            checkField(x, y, turn);
+            if (findVoidPath(x, y)) {
+                checkField(x, y, turn);
+            } else {
+                System.out.println("--------------------------");
+                System.out.println("既に駒が置かれています");
+                System.out.println("もう一度やり直してください");
+            }
         } catch (final ArrayIndexOutOfBoundsException e) {
             System.out.println("--------------------------");
-            System.out.println("正しく座標を入力してください" + e);
-            System.out.println("--------------------------");
+            System.out.println("正しく座標を入力してください");
         }
     }
+
+    // static int x() {
+    // Random rand = new Random();
+    // int a = 1000;
+    // int b = rand.nextInt(xPathList.size());
+    // if (xPathList.get(0) > 0) {
+    // a = xPathList.get(b);
+    // }
+    // return a;
+    // }
+
+    // static int y() {
+    // Random rand = new Random();
+    // int a = 1000;
+    // int b = rand.nextInt(yPathList.size());
+    // if (yPathList.get(0) > 0) {
+    // a = yPathList.get(b);
+    // }
+    // return a;
+    // }
 
     public static void main(String[] args) {
         init();
         do {
+            if (winCheck()) {
+                sumField();
+                break;
+            }
             addPath(turn);
             showTable(field);
-            io(turn);
+            if (passCheck()) {
+                System.out.println("--------------------------");
+                System.out.println("置く駒がありません");
+                System.out.println("ターンをパスします");
+                System.out.println("--------------------------");
+                changeTurn(turn);
+            } else {
+                io(turn);
+            }
         } while (true);
     }
 }
