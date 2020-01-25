@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 class Reversi {
     private static Scanner stdIn = new Scanner(System.in);
-    private static int turn[] = { 11 };
+    private static int turn[] = { 10 };
     private static int field[][] = new int[9][9];
     private static List<Integer> xPathList = new ArrayList<Integer>();
     private static List<Integer> yPathList = new ArrayList<Integer>();
@@ -779,32 +779,43 @@ class Reversi {
     }
 
     static void io(int turn[]) {
-        Random rand = new Random();
-        int a = rand.nextInt(xPathList.size());
-        int x = xPathList.get(a);
-        int y = yPathList.get(a);
-        try {
-            if (turn[0] == 11) {
-                System.out.println("白の番です");
-            } else {
+        if (turn[0] == 10) {
+            try {
                 System.out.println("黒の番です");
-            }
-            System.out.println("--------------------------");
-            System.out.println("x座標を入力");
-            // final int x = stdIn.nextInt();
-            System.out.println("--------------------------");
-            System.out.println("y座標を入力");
-            // final int y = stdIn.nextInt();
-            if (findVoidPath(x, y)) {
-                checkField(x, y, turn);
-            } else {
                 System.out.println("--------------------------");
-                System.out.println("既に駒が置かれています");
-                System.out.println("もう一度やり直してください");
+                System.out.println("x座標を入力");
+                final int x = stdIn.nextInt();
+                System.out.println("--------------------------");
+                System.out.println("y座標を入力");
+                final int y = stdIn.nextInt();
+                if (findVoidPath(x, y)) {
+                    checkField(x, y, turn);
+                } else {
+                    System.out.println("--------------------------");
+                    System.out.println("もう一度やり直してください");
+                }
+            } catch (final ArrayIndexOutOfBoundsException e) {
+                System.out.println("--------------------------");
+                System.out.println("正しく座標を入力してください");
             }
-        } catch (final ArrayIndexOutOfBoundsException e) {
-            System.out.println("--------------------------");
-            System.out.println("正しく座標を入力してください" + e);
+        } else {
+            Random rand = new Random();
+            int a = rand.nextInt(xPathList.size());
+            int NPCx = xPathList.get(a);
+            int NPCy = yPathList.get(a);
+            try {
+                if (findVoidPath(NPCx, NPCy)) {
+                    checkField(NPCx, NPCy, turn);
+                    System.out.println("--------------------------");
+                    System.out.println("コンピュータが考え中");
+                } else {
+                    System.out.println("--------------------------");
+                    System.out.println("もう一度やり直してください");
+                }
+            } catch (final ArrayIndexOutOfBoundsException e) {
+                System.out.println("--------------------------");
+                System.out.println("正しく座標を入力してください");
+            }
         }
     }
 
@@ -819,6 +830,7 @@ class Reversi {
                 break;
             }
             if (winCheck()) {
+                showTable(field);
                 sumField();
                 break;
             }
