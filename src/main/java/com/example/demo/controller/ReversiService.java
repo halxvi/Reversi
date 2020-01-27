@@ -1,11 +1,14 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-class Reversi {
+import org.springframework.stereotype.Service;
+
+@Service
+public class ReversiService {
     private static Scanner stdIn = new Scanner(System.in);
     private static int turn[] = { 10 };
     private static int field[][] = new int[9][9];
