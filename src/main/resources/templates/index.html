@@ -15,6 +15,16 @@
             border-collapse: collapse;
             table-layout: auto;
         }
+
+        button {
+            padding: 0;
+            border: none;
+            background: transparent;
+        }
+
+        button img {
+            display: block;
+        }
     </Style>
 </head>
 
@@ -22,7 +32,7 @@
     <table>
         <tr th:each="d:${data}">
             <td>
-                <button type="button" th:if="${d == 0}"><img th:src="@{/assets/green.png}"></button>
+                <input type="button" th:if="${d == 0}"><img th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
