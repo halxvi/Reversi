@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 
 @Controller
-public class Controller {
+public class ReversiController {
   static List<Integer> data = new ArrayList<Integer>();
 
   @RequestMapping("/")
