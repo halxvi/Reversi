@@ -37,7 +37,13 @@
 
 <body>
     <table>
-        <tr th:each="d:${data}">
+        <tr>
+            <td>
+                <input type="image" th:if="${d[0] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[0] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[0] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[0] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
             <td>
                 <input type="image" th:if="${d[1] == 0}" th:src="@{/assets/green.png}"></input>
                 <input type="image" th:if="${d[1] == 10}" th:src="@{/assets/white.png}"></input>
@@ -86,11 +92,105 @@
                 <input type="image" th:if="${d[8] == 11}" th:src="@{/assets/black.png}"></input>
                 <input type="image" th:if="${d[8] == 20}" th:src="@{/assets/brightgreen.png}"></input>
             </td>
+        </tr>
+        <tr>
             <td>
                 <input type="image" th:if="${d[9] == 0}" th:src="@{/assets/green.png}"></input>
                 <input type="image" th:if="${d[9] == 10}" th:src="@{/assets/white.png}"></input>
                 <input type="image" th:if="${d[9] == 11}" th:src="@{/assets/black.png}"></input>
                 <input type="image" th:if="${d[9] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[10] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[10] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[10] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[10] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[11] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[11] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[11] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[11] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[12] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[12] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[12] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[12] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[13] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[13] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[13] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[13] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[14] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[14] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[14] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[14] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[15] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[15] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[15] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[15] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[16] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[16] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[16] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[16] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="image" th:if="${d[17] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[17] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[17] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[17] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[18] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[18] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[18] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[18] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[19] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[19] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[19] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[19] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[20] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[20] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[20] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[20] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[21] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[21] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[21] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[21] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[22] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[22] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[22] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[22] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[23] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[23] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[23] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[23] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <td>
+                <input type="image" th:if="${d[24] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[24] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[24] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[24] == 20}" th:src="@{/assets/brightgreen.png}"></input>
             </td>
         </tr>
     </table>

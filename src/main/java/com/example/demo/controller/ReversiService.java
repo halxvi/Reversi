@@ -14,7 +14,6 @@ public class ReversiService {
     private static int field[][] = new int[9][9];
     private static List<Integer> xPathList = new ArrayList<Integer>();
     private static List<Integer> yPathList = new ArrayList<Integer>();
-    private static int controllerData[][] = new int[9][9];
 
     void init() {
         for (int i = 0; i < 9; i++) {
@@ -825,13 +824,14 @@ public class ReversiService {
         }
     }
 
-    public int[][] getData() {
-        int num[] = new int[9];
+    public int[] getData() {
+        int controllerData[] = new int[64];
+        int counter = 0;
         for (int i = 1; i < 9; i++) {
             for (int v = 1; v < 9; v++) {
-                num[v] = field[i][v];
+                controllerData[counter] = field[i][v];
+                counter += 1;
             }
-            controllerData[i] = num;
         }
         return controllerData;
     }
