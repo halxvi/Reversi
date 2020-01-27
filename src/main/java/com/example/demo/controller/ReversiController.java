@@ -17,6 +17,8 @@ public class ReversiController {
 
   @RequestMapping("/")
   public String index(Model model) {
+    data.add(10);
+    model.addAttribute("data", data);
     model.addAttribute("msg", 123);
     return "index";
   }
