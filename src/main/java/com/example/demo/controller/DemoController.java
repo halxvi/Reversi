@@ -19,8 +19,8 @@ public class DemoController {
     return "index";
   }
 
-  @RequestMapping("/error")
-  public String index() {
-    return "error";
-  }
+  // @RequestMapping("/error")
+  // public String index() {
+  // return "error";
+  // }
 }
