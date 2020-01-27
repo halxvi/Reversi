@@ -42,18 +42,18 @@
     <table>
         <tr th:each="d:${data}">
             <td>
-                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
-                <input type="image" th:if="${d == 10}" th:src="@{/assets/white.png}"></input>
-                <input type="image" th:if="${d == 11}" th:src="@{/assets/black.png}"></input>
-                <input type="image" th:if="${d == 20}" th:src="@{/assets/brightgreen.png}"></input>
-            </td>
-            <!-- <td>
-                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
-                <input type="image" th:if="${d == 10}" th:src="@{/assets/white.png}"></input>
-                <input type="image" th:if="${d == 11}" th:src="@{/assets/black.png}"></input>
-                <input type="image" th:if="${d == 20}" th:src="@{/assets/brightgreen.png}"></input>
+                <input type="image" th:if="${d[1] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[1] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[1] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[1] == 20}" th:src="@{/assets/brightgreen.png}"></input>
             </td>
             <td>
+                <input type="image" th:if="${d[2] == 0}" th:src="@{/assets/green.png}"></input>
+                <input type="image" th:if="${d[2] == 10}" th:src="@{/assets/white.png}"></input>
+                <input type="image" th:if="${d[2] == 11}" th:src="@{/assets/black.png}"></input>
+                <input type="image" th:if="${d[2] == 20}" th:src="@{/assets/brightgreen.png}"></input>
+            </td>
+            <!-- <td>
                 <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <input type="image" th:if="${d == 10}" th:src="@{/assets/white.png}"></input>
                 <input type="image" th:if="${d == 11}" th:src="@{/assets/black.png}"></input>
