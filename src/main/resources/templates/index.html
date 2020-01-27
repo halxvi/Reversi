@@ -11,7 +11,8 @@
         }
 
         table {
-            border: 2px;
+            border: 1px;
+            border-color: black;
         }
     </Style>
 </head>
@@ -19,6 +20,54 @@
 <body>
     <table>
         <tr th:each="d:${data}">
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
+            <td>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
+            </td>
             <td>
                 <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
                 <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
