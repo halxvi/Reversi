@@ -14,7 +14,7 @@ public class DemoController {
   @RequestMapping("/")
   public String index(Model model) {
     for (int i = 0; i < 64; i++) {
-      data.add(1);
+      data.add(0);
     }
     model.addAttribute("data", data);
     model.addAttribute("msg", 123);
