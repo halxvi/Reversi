@@ -5,7 +5,7 @@
     <title>Reversi</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <Style>
-        img {
+        input {
             width: 80px;
             height: 80px;
         }
@@ -14,6 +14,14 @@
             border: solid 1px black;
             border-collapse: collapse;
             table-layout: auto;
+        }
+
+        td {
+            border: solid 1px black;
+        }
+
+        tr {
+            border: solid 1px black;
         }
 
         button {
@@ -27,6 +35,7 @@
         }
     </Style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script th:src="@{/assets/index.js}"></script>
 </head>
 
 <body>
@@ -39,49 +48,49 @@
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
             </td>
             <td>
-                <img th:if="${d == 0}" th:src="@{/assets/green.png}">
+                <input type="image" th:if="${d == 0}" th:src="@{/assets/green.png}"></input>
                 <img th:if="${d ==10}" th:src="@{/assets/white.png}">
                 <img th:if="${d ==11}" th:src="@{/assets/black.png}">
                 <img th:if="${d ==20}" th:src="@{/assets/brightgreen.png}">
