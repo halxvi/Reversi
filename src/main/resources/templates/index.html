@@ -4,16 +4,22 @@
 <head>
     <title>Reversi</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <Style>
+        .field {
+            width: 50px;
+            height: 50px;
+        }
+    </Style>
 </head>
 
 <body>
     <table>
         <tr th:each="d:${data}">
             <td>
-                <div th:if="${d == 0}"><img th:src="@{/assets/green.png}"></div>
-                <div th:if="${d == 10}"><img th:src="@{/assets/white.png}"></div>
-                <div th:if="${d == 11}"><img th:src="@{/assets/black.png}"></div>
-                <div th:if="${d == 20}"><img th:src="@{/assets/brightgreen.png}"></div>
+                <div th:if="${d == 0}" class="field"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}" class="field"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}" class="field"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}" class="field"><img th:src="@{/assets/brightgreen.png}"></div>
             </td>
         </tr>
     </table>
