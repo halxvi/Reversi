@@ -10,10 +10,10 @@
     <table>
         <tr th:each="d:${data}">
             <td>
-                <div th:if="${d == 0}"><img th:src="${/assets/green.png}"></div>
-                <div th:if="${d == 10}"><img th:src="${/assets/white.png}"></div>
-                <div th:if="${d == 11}"><img th:src="${/assets/black.png}"></div>
-                <div th:if="${d == 20}"><img th:src="${/assets/brightgreen.png}"></div>
+                <div th:if="${d == 0}"><img th:src="@{/assets/green.png}"></div>
+                <div th:if="${d == 10}"><img th:src="@{/assets/white.png}"></div>
+                <div th:if="${d == 11}"><img th:src="@{/assets/black.png}"></div>
+                <div th:if="${d == 20}"><img th:src="@{/assets/brightgreen.png}"></div>
             </td>
         </tr>
     </table>
