@@ -20,6 +20,4 @@ public class DemoController {
     model.addAttribute("msg", 123);
     return "index";
   }
-  @RequestMapping("/src/main/resoures/static/assets/green.png")
-  public 
 }
