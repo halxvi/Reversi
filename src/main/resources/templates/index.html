@@ -4,9 +4,31 @@
 <head>
     <title>Reversi</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" th:href="@{/assets/index.css}" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script th:src="@{/assets/index.js}"></script>
+    <style>
+        img {
+            width: 70px;
+            height: 70px;
+            vertical-align: bottom;
+        }
+
+        table,
+        tr,
+        td {
+            border: solid 1px black;
+            border-collapse: collapse;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        p {
+            float: left;
+            text-align: left;
+            border-width: 3px;
+            border-style: ridge;
+        }
+    </style>
 </head>
 
 <body>
@@ -412,7 +434,7 @@
             </td>
         </tr>
     </table>
-    <p th:text=${msg} style="text-align: right;"></p>
+    <p th:text=${msg}></p>
 </body>
 
 </html>
