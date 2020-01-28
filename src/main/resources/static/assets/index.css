@@ -1,0 +1,21 @@
+img {
+    width: 70px;
+    height: 70px;
+    vertical-align: bottom;
+}
+
+table,
+tr,
+td {
+    border: solid 1px black;
+    border-collapse: collapse;
+    padding: 0px;
+    margin: 0px;
+}
+
+p {
+    float: left;
+    text-align: left;
+    border-width: 3px;
+    border-style: ridge;
+}
