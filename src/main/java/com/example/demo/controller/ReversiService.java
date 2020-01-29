@@ -848,7 +848,7 @@ public class ReversiService {
     }
 
     public void start() {
-        messageList.add("ゲーム開始ィィィィぃ！！！！！！");
+        messageList.add("ゲーム開始ィィィィ！！！！！！");
         // init();
         // int counter = 0;
         // do {
