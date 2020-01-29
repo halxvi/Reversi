@@ -9,5 +9,8 @@ function click(value) {
         success: function (response) {
             console.log(response);
         }
+        , error: function (res) {
+            console.log(res);
+        }
     });
 };
