@@ -13,9 +13,10 @@ td {
     margin: 0px;
 }
 
-p {
+#message {
     float: left;
     text-align: left;
     border-width: 3px;
     border-style: ridge;
+    margin: 5px;
 }
