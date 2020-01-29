@@ -23,6 +23,6 @@ table{width: auto;}
     display: inline-block;
     border-width: 3px;
     border-style: ridge;
-    margin-left: auto;
+    margin:10px;
     white-space: pre-wrap;
 }
