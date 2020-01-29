@@ -15,10 +15,11 @@ td {
 
 .field{
     float: left;
+    width: 70%;
 }
 
 .message {
-    width: auto;
+    width: 30%;
     border-width: 3px;
     border-style: ridge;
     margin-left: auto;
