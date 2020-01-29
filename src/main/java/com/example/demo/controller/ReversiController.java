@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.google.gson.Gson;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,9 @@ public class ReversiController {
     return "index";
   }
 
-  @RequestMapping(value = "/update", method = RequestMethod.GET)
+  @RequestMapping(value = "/update*", method = RequestMethod.GET)
   public String update(int xAxis, int yAxis, Model model) {
-    return "a";
+    Gson gson = new Gson();
+    return gson.toJson("a");
   }
 }
