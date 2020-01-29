@@ -1,4 +1,4 @@
-function click(value) {
+function fieldClick(value) {
     console.log(2)
     // const data = value.split(":");
     // const x = data[0];
