@@ -1,4 +1,5 @@
 function click(value) {
+    console.log(1)
     const data = value.split(":");
     const x = data[0];
     const y = data[1];
