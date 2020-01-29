@@ -10,7 +10,7 @@ public class ReversiController {
   @Autowired
   ReversiService rs;
 
-  @RequestMapping(value = "/solo", method = RequestMethod.GET)
+  @RequestMapping(value = "/", method = RequestMethod.GET)
   public String top(Model model) {
     rs.main();
     model.addAttribute("d", rs.getData());
