@@ -6,11 +6,26 @@ function fieldClick(value) {
         type: "GET",
         url: "/update",
         data: { xAxis: x, yAxis: y },
-        success: function (response) {
-            console.log(response);
+        success: function (res) {
+            console.log(res);
         }
         , error: function (res) {
             console.log(res);
         }
     });
 };
+
+function checkMessage() {
+    $.ajax({
+        type: "method",
+        url: "url",
+        data: "data",
+        success: function (res) {
+            $("#message").html(res);
+        }, error: function (res) {
+            console.log(res);
+        }
+    });
+};
+
+let continuousTimer = setInterval(checkMessage, 1000);

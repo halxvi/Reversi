@@ -22,8 +22,14 @@ public class ReversiController {
 
   @RequestMapping(value = "/update*", method = RequestMethod.GET)
   @ResponseBody
-  public String update(int xAxis, int yAxis, Model model) {
+  public String update(int xAxis, int yAxis) {
     Gson gson = new Gson();
     return gson.toJson("a");
+  }
+
+  @RequestMapping(value = "/message", method = RequestMethod.GET)
+  @ResponseBody
+  public String getMessage() {
+    return rs.getMessage();
   }
 }
