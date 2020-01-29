@@ -836,8 +836,8 @@ public class ReversiService {
 
     public String getMessage() {
         String message = "";
-        if (messageList.size() > 10) {
-            for (int i = 0; i < 5; i++) {
+        if (messageList.size() > 6) {
+            for (int i = 0; i < 3; i++) {
                 messageList.remove(0);
             }
         }
