@@ -13,9 +13,11 @@ td {
     margin: 0px;
 }
 
-#message {
+.table{
     float: left;
-    text-align: left;
+}
+
+.message {
     border-width: 3px;
     border-style: ridge;
     margin: 5px;
