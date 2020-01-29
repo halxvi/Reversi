@@ -847,33 +847,34 @@ public class ReversiService {
         return message;
     }
 
-    public void main() {
-        init();
-        int counter = 0;
-        do {
-            if (counter > 2) {
-                messageList.add("--------------------------");
-                messageList.add("駒が置けなくなりました");
-                sumField();
-                break;
-            }
-            if (winCheck()) {
-                // showTable(field);
-                sumField();
-                break;
-            }
-            addPath(turn);
-            // showTable(field);
-            if (passCheck()) {
-                messageList.add("--------------------------");
-                messageList.add("置く駒がありません");
-                messageList.add("ターンをパスします");
-                counter += 1;
-                changeTurn(turn);
-            } else {
-                counter = 0;
-                io(turn);
-            }
-        } while (true);
+    public void start() {
+        messageList.add("ゲーム開始ィィィィぃ！！！！！！");
+        // init();
+        // int counter = 0;
+        // do {
+        // if (counter > 2) {
+        // messageList.add("--------------------------");
+        // messageList.add("駒が置けなくなりました");
+        // sumField();
+        // break;
+        // }
+        // if (winCheck()) {
+        // // showTable(field);
+        // sumField();
+        // break;
+        // }
+        // addPath(turn);
+        // // showTable(field);
+        // if (passCheck()) {
+        // messageList.add("--------------------------");
+        // messageList.add("置く駒がありません");
+        // messageList.add("ターンをパスします");
+        // counter += 1;
+        // changeTurn(turn);
+        // } else {
+        // counter = 0;
+        // io(turn);
+        // }
+        // } while (true);
     }
 }

@@ -62,8 +62,7 @@
                 <input type="image" th:if="${d[4] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
                     onclick="fieldClick(this.value)"></input>
             </td>
-        <tr>
-            <!-- <td>
+            <td>
                 <input type="image" th:if="${d[5] == 0}" th:src="@{/assets/green.png}" onclick="click(1,6)"></input>
                 <input type="image" th:if="${d[5] == 10}" th:src="@{/assets/white.png}" onclick="click(1,6)"></input>
                 <input type="image" th:if="${d[5] == 11}" th:src="@{/assets/black.png}" onclick="click(1,6)"></input>
@@ -490,7 +489,7 @@
                 <input type="image" th:if="${d[63] == 20}" th:src="@{/assets/brightgreen.png}"
                     onclick="click(1,1)"></input>
             </td>
-        </tr> -->
+        </tr>
     </table>
     <div id="message" th:text=${msg}></div>
 </body>

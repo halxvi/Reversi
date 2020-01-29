@@ -15,6 +15,7 @@ public class ReversiController {
   @RequestMapping(value = "/", method = RequestMethod.GET)
   public String top(Model model) {
     rs.init();
+    rs.start();
     model.addAttribute("d", rs.getData());
     model.addAttribute("msg", rs.getMessage());
     return "index";
