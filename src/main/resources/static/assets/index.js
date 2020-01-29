@@ -17,9 +17,8 @@ function fieldClick(value) {
 
 function checkMessage() {
     $.ajax({
-        type: "method",
-        url: "url",
-        data: "data",
+        type: "GET",
+        url: "/message",
         success: function (res) {
             $("#message").html(res);
         }, error: function (res) {
