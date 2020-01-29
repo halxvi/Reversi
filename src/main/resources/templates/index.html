@@ -10,487 +10,661 @@
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[0] == 0}" th:src="@{/assets/green.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[0] == 10}" th:src="@{/assets/white.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[0] == 11}" th:src="@{/assets/black.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[0] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[1] == 0}" th:src="@{/assets/green.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[1] == 10}" th:src="@{/assets/white.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[1] == 11}" th:src="@{/assets/black.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[1] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[2] == 0}" th:src="@{/assets/green.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[2] == 10}" th:src="@{/assets/white.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[2] == 11}" th:src="@{/assets/black.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[2] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[3] == 0}" th:src="@{/assets/green.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[3] == 10}" th:src="@{/assets/white.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[3] == 11}" th:src="@{/assets/black.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[3] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[4] == 0}" th:src="@{/assets/green.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[4] == 10}" th:src="@{/assets/white.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[4] == 11}" th:src="@{/assets/black.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-                <input type="image" th:if="${d[4] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
-                    onclick="fieldClick(this.value)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[5] == 0}" th:src="@{/assets/green.png}" onclick="click(1,6)"></input>
-                <input type="image" th:if="${d[5] == 10}" th:src="@{/assets/white.png}" onclick="click(1,6)"></input>
-                <input type="image" th:if="${d[5] == 11}" th:src="@{/assets/black.png}" onclick="click(1,6)"></input>
-                <input type="image" th:if="${d[5] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,6)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[6] == 0}" th:src="@{/assets/green.png}" onclick="click(1,7)"></input>
-                <input type="image" th:if="${d[6] == 10}" th:src="@{/assets/white.png}" onclick="click(1,7)"></input>
-                <input type="image" th:if="${d[6] == 11}" th:src="@{/assets/black.png}" onclick="click(1,7)"></input>
-                <input type="image" th:if="${d[6] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,7)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[7] == 0}" th:src="@{/assets/green.png}" onclick="click(1,8)"></input>
-                <input type="image" th:if="${d[7] == 10}" th:src="@{/assets/white.png}" onclick="click(1,8)"></input>
-                <input type="image" th:if="${d[7] == 11}" th:src="@{/assets/black.png}" onclick="click(1,8)"></input>
-                <input type="image" th:if="${d[7] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,8)"></input>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[8] == 0}" th:src="@{/assets/green.png}" onclick="click(2,1)"></input>
-                <input type="image" th:if="${d[8] == 10}" th:src="@{/assets/white.png}" onclick="click(2,1)"></input>
-                <input type="image" th:if="${d[8] == 11}" th:src="@{/assets/black.png}" onclick="click(2,1)"></input>
-                <input type="image" th:if="${d[8] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[9] == 0}" th:src="@{/assets/green.png}" onclick="click(2,2)"></input>
-                <input type="image" th:if="${d[9] == 10}" th:src="@{/assets/white.png}" onclick="click(2,2)"></input>
-                <input type="image" th:if="${d[9] == 11}" th:src="@{/assets/black.png}" onclick="click(2,2)"></input>
-                <input type="image" th:if="${d[9] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,2)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[10] == 0}" th:src="@{/assets/green.png}" onclick="click(2,3)"></input>
-                <input type="image" th:if="${d[10] == 10}" th:src="@{/assets/white.png}" onclick="click(2,3)"></input>
-                <input type="image" th:if="${d[10] == 11}" th:src="@{/assets/black.png}" onclick="click(2,3)"></input>
-                <input type="image" th:if="${d[10] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,3)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[11] == 0}" th:src="@{/assets/green.png}" onclick="click(2,4)"></input>
-                <input type="image" th:if="${d[11] == 10}" th:src="@{/assets/white.png}" onclick="click(2,4)"></input>
-                <input type="image" th:if="${d[11] == 11}" th:src="@{/assets/black.png}" onclick="click(2,4)"></input>
-                <input type="image" th:if="${d[11] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,4)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[12] == 0}" th:src="@{/assets/green.png}" onclick="click(2,5)"></input>
-                <input type="image" th:if="${d[12] == 10}" th:src="@{/assets/white.png}" onclick="click(2,5)"></input>
-                <input type="image" th:if="${d[12] == 11}" th:src="@{/assets/black.png}" onclick="click(2,5)"></input>
-                <input type="image" th:if="${d[12] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,5)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[13] == 0}" th:src="@{/assets/green.png}" onclick="click(2,6)"></input>
-                <input type="image" th:if="${d[13] == 10}" th:src="@{/assets/white.png}" onclick="click(2,6)"></input>
-                <input type="image" th:if="${d[13] == 11}" th:src="@{/assets/black.png}" onclick="click(2,6)"></input>
-                <input type="image" th:if="${d[13] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,6)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[14] == 0}" th:src="@{/assets/green.png}" onclick="click(2,7)"></input>
-                <input type="image" th:if="${d[14] == 10}" th:src="@{/assets/white.png}" onclick="click(2,7)"></input>
-                <input type="image" th:if="${d[14] == 11}" th:src="@{/assets/black.png}" onclick="click(2,7)"></input>
-                <input type="image" th:if="${d[14] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,7)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[15] == 0}" th:src="@{/assets/green.png}" onclick="click(2,8)"></input>
-                <input type="image" th:if="${d[15] == 10}" th:src="@{/assets/white.png}" onclick="click(2,8)"></input>
-                <input type="image" th:if="${d[15] == 11}" th:src="@{/assets/black.png}" onclick="click(2,8)"></input>
-                <input type="image" th:if="${d[15] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(2,8)"></input>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[16] == 0}" th:src="@{/assets/green.png}" onclick="click(3,1)"></input>
-                <input type="image" th:if="${d[16] == 10}" th:src="@{/assets/white.png}" onclick="click(3,1)"></input>
-                <input type="image" th:if="${d[16] == 11}" th:src="@{/assets/black.png}" onclick="click(3,1)"></input>
-                <input type="image" th:if="${d[16] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[17] == 0}" th:src="@{/assets/green.png}" onclick="click(3,2)"></input>
-                <input type="image" th:if="${d[17] == 10}" th:src="@{/assets/white.png}" onclick="click(3,2)"></input>
-                <input type="image" th:if="${d[17] == 11}" th:src="@{/assets/black.png}" onclick="click(3,2)"></input>
-                <input type="image" th:if="${d[17] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,2)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[18] == 0}" th:src="@{/assets/green.png}" onclick="click(3,3)"></input>
-                <input type="image" th:if="${d[18] == 10}" th:src="@{/assets/white.png}" onclick="click(3,3)"></input>
-                <input type="image" th:if="${d[18] == 11}" th:src="@{/assets/black.png}" onclick="click(3,3)"></input>
-                <input type="image" th:if="${d[18] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,3)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[19] == 0}" th:src="@{/assets/green.png}" onclick="click(3,4)"></input>
-                <input type="image" th:if="${d[19] == 10}" th:src="@{/assets/white.png}" onclick="click(3,4)"></input>
-                <input type="image" th:if="${d[19] == 11}" th:src="@{/assets/black.png}" onclick="click(3,4)"></input>
-                <input type="image" th:if="${d[19] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,4)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[20] == 0}" th:src="@{/assets/green.png}" onclick="click(3,5)"></input>
-                <input type="image" th:if="${d[20] == 10}" th:src="@{/assets/white.png}" onclick="click(3,5)"></input>
-                <input type="image" th:if="${d[20] == 11}" th:src="@{/assets/black.png}" onclick="click(3,5)"></input>
-                <input type="image" th:if="${d[20] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,5)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[21] == 0}" th:src="@{/assets/green.png}" onclick="click(3,6)"></input>
-                <input type="image" th:if="${d[21] == 10}" th:src="@{/assets/white.png}" onclick="click(3,6)"></input>
-                <input type="image" th:if="${d[21] == 11}" th:src="@{/assets/black.png}" onclick="click(3,6)"></input>
-                <input type="image" th:if="${d[21] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,6)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[22] == 0}" th:src="@{/assets/green.png}" onclick="click(3,7)"></input>
-                <input type="image" th:if="${d[22] == 10}" th:src="@{/assets/white.png}" onclick="click(3,7)"></input>
-                <input type="image" th:if="${d[22] == 11}" th:src="@{/assets/black.png}" onclick="click(3,7)"></input>
-                <input type="image" th:if="${d[22] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,7)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[23] == 0}" th:src="@{/assets/green.png}" onclick="click(3,8)"></input>
-                <input type="image" th:if="${d[23] == 10}" th:src="@{/assets/white.png}" onclick="click(3,8)"></input>
-                <input type="image" th:if="${d[23] == 11}" th:src="@{/assets/black.png}" onclick="click(3,8)"></input>
-                <input type="image" th:if="${d[23] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(3,8)"></input>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[24] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[24] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[24] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[24] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[25] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[25] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[25] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[25] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[26] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[26] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[26] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[26] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[27] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[27] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[27] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[27] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[28] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[28] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[28] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[28] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[29] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[29] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[29] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[29] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[30] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[30] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[30] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[30] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[31] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[31] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[31] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[31] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[32] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[32] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[32] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[32] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[33] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[33] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[33] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[33] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[34] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[34] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[34] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[34] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[35] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[35] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[35] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[35] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[36] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[36] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[36] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[36] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[37] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[37] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[37] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[37] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[38] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[38] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[38] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[38] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[39] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[39] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[39] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[39] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[40] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[40] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[40] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[40] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[41] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[41] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[41] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[41] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[42] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[42] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[42] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[42] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[43] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[43] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[43] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[43] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[44] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[44] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[44] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[44] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[45] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[45] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[45] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[45] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[46] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[46] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[46] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[46] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[47] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[47] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[47] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[47] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[48] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[48] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[48] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[48] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[49] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[49] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[49] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[49] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[50] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[50] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[50] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[50] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[51] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[51] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[51] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[51] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[52] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[52] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[52] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[52] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[53] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[53] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[53] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[53] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[54] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[54] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[54] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[54] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[55] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[55] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[55] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[55] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="image" th:if="${d[56] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[56] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[56] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[56] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[57] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[57] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[57] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[57] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[58] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[58] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[58] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[58] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[59] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[59] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[59] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[59] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[60] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[60] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[60] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[60] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[61] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[61] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[61] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[61] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[62] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[62] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[62] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[62] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-            <td>
-                <input type="image" th:if="${d[63] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[63] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[63] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[63] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
-            </td>
-        </tr>
-    </table>
+    <div id="field">
+        <table>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[0] == 0}" th:src="@{/assets/green.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[0] == 10}" th:src="@{/assets/white.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[0] == 11}" th:src="@{/assets/black.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[0] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[1] == 0}" th:src="@{/assets/green.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[1] == 10}" th:src="@{/assets/white.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[1] == 11}" th:src="@{/assets/black.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[1] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[2] == 0}" th:src="@{/assets/green.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[2] == 10}" th:src="@{/assets/white.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[2] == 11}" th:src="@{/assets/black.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[2] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[3] == 0}" th:src="@{/assets/green.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[3] == 10}" th:src="@{/assets/white.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[3] == 11}" th:src="@{/assets/black.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[3] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[4] == 0}" th:src="@{/assets/green.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[4] == 10}" th:src="@{/assets/white.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[4] == 11}" th:src="@{/assets/black.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[4] == 20}" th:src="@{/assets/brightgreen.png}" value="1:1"
+                        onclick="fieldClick(this.value)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[5] == 0}" th:src="@{/assets/green.png}" onclick="click(1,6)"></input>
+                    <input type="image" th:if="${d[5] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,6)"></input>
+                    <input type="image" th:if="${d[5] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,6)"></input>
+                    <input type="image" th:if="${d[5] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,6)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[6] == 0}" th:src="@{/assets/green.png}" onclick="click(1,7)"></input>
+                    <input type="image" th:if="${d[6] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,7)"></input>
+                    <input type="image" th:if="${d[6] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,7)"></input>
+                    <input type="image" th:if="${d[6] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,7)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[7] == 0}" th:src="@{/assets/green.png}" onclick="click(1,8)"></input>
+                    <input type="image" th:if="${d[7] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,8)"></input>
+                    <input type="image" th:if="${d[7] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,8)"></input>
+                    <input type="image" th:if="${d[7] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,8)"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[8] == 0}" th:src="@{/assets/green.png}" onclick="click(2,1)"></input>
+                    <input type="image" th:if="${d[8] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,1)"></input>
+                    <input type="image" th:if="${d[8] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,1)"></input>
+                    <input type="image" th:if="${d[8] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[9] == 0}" th:src="@{/assets/green.png}" onclick="click(2,2)"></input>
+                    <input type="image" th:if="${d[9] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,2)"></input>
+                    <input type="image" th:if="${d[9] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,2)"></input>
+                    <input type="image" th:if="${d[9] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,2)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[10] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(2,3)"></input>
+                    <input type="image" th:if="${d[10] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,3)"></input>
+                    <input type="image" th:if="${d[10] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,3)"></input>
+                    <input type="image" th:if="${d[10] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,3)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[11] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(2,4)"></input>
+                    <input type="image" th:if="${d[11] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,4)"></input>
+                    <input type="image" th:if="${d[11] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,4)"></input>
+                    <input type="image" th:if="${d[11] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,4)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[12] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(2,5)"></input>
+                    <input type="image" th:if="${d[12] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,5)"></input>
+                    <input type="image" th:if="${d[12] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,5)"></input>
+                    <input type="image" th:if="${d[12] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,5)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[13] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(2,6)"></input>
+                    <input type="image" th:if="${d[13] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,6)"></input>
+                    <input type="image" th:if="${d[13] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,6)"></input>
+                    <input type="image" th:if="${d[13] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,6)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[14] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(2,7)"></input>
+                    <input type="image" th:if="${d[14] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,7)"></input>
+                    <input type="image" th:if="${d[14] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,7)"></input>
+                    <input type="image" th:if="${d[14] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,7)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[15] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(2,8)"></input>
+                    <input type="image" th:if="${d[15] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(2,8)"></input>
+                    <input type="image" th:if="${d[15] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(2,8)"></input>
+                    <input type="image" th:if="${d[15] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(2,8)"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[16] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,1)"></input>
+                    <input type="image" th:if="${d[16] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,1)"></input>
+                    <input type="image" th:if="${d[16] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,1)"></input>
+                    <input type="image" th:if="${d[16] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[17] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,2)"></input>
+                    <input type="image" th:if="${d[17] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,2)"></input>
+                    <input type="image" th:if="${d[17] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,2)"></input>
+                    <input type="image" th:if="${d[17] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,2)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[18] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,3)"></input>
+                    <input type="image" th:if="${d[18] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,3)"></input>
+                    <input type="image" th:if="${d[18] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,3)"></input>
+                    <input type="image" th:if="${d[18] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,3)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[19] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,4)"></input>
+                    <input type="image" th:if="${d[19] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,4)"></input>
+                    <input type="image" th:if="${d[19] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,4)"></input>
+                    <input type="image" th:if="${d[19] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,4)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[20] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,5)"></input>
+                    <input type="image" th:if="${d[20] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,5)"></input>
+                    <input type="image" th:if="${d[20] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,5)"></input>
+                    <input type="image" th:if="${d[20] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,5)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[21] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,6)"></input>
+                    <input type="image" th:if="${d[21] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,6)"></input>
+                    <input type="image" th:if="${d[21] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,6)"></input>
+                    <input type="image" th:if="${d[21] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,6)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[22] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,7)"></input>
+                    <input type="image" th:if="${d[22] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,7)"></input>
+                    <input type="image" th:if="${d[22] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,7)"></input>
+                    <input type="image" th:if="${d[22] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,7)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[23] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(3,8)"></input>
+                    <input type="image" th:if="${d[23] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(3,8)"></input>
+                    <input type="image" th:if="${d[23] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(3,8)"></input>
+                    <input type="image" th:if="${d[23] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(3,8)"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[24] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[24] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[24] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[24] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[25] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[25] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[25] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[25] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[26] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[26] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[26] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[26] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[27] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[27] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[27] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[27] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[28] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[28] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[28] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[28] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[29] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[29] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[29] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[29] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[30] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[30] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[30] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[30] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[31] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[31] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[31] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[31] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[32] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[32] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[32] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[32] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[33] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[33] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[33] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[33] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[34] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[34] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[34] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[34] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[35] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[35] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[35] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[35] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[36] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[36] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[36] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[36] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[37] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[37] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[37] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[37] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[38] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[38] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[38] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[38] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[39] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[39] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[39] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[39] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[40] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[40] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[40] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[40] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[41] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[41] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[41] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[41] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[42] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[42] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[42] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[42] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[43] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[43] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[43] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[43] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[44] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[44] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[44] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[44] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[45] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[45] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[45] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[45] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[46] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[46] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[46] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[46] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[47] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[47] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[47] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[47] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[48] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[48] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[48] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[48] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[49] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[49] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[49] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[49] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[50] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[50] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[50] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[50] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[51] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[51] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[51] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[51] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[52] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[52] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[52] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[52] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[53] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[53] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[53] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[53] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[54] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[54] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[54] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[54] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[55] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[55] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[55] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[55] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" th:if="${d[56] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[56] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[56] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[56] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[57] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[57] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[57] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[57] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[58] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[58] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[58] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[58] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[59] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[59] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[59] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[59] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[60] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[60] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[60] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[60] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[61] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[61] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[61] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[61] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[62] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[62] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[62] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[62] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+                <td>
+                    <input type="image" th:if="${d[63] == 0}" th:src="@{/assets/green.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[63] == 10}" th:src="@{/assets/white.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[63] == 11}" th:src="@{/assets/black.png}"
+                        onclick="click(1,1)"></input>
+                    <input type="image" th:if="${d[63] == 20}" th:src="@{/assets/brightgreen.png}"
+                        onclick="click(1,1)"></input>
+                </td>
+            </tr>
+        </table>
+    </div>
     <div id="message" th:text=${msg}></div>
 </body>
 
