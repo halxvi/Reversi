@@ -10,11 +10,16 @@ public class ReversiController {
   @Autowired
   ReversiService rs;
 
-  @RequestMapping("/")
-  public String index(Model model) {
-    rs.init();
+  @RequestMapping(value = "/solo", method = RequestMethod.GET)
+  public String top(Model model) {
+    rs.main();
     model.addAttribute("d", rs.getData());
-    model.addAttribute("msg", 123);
+    model.addAttribute("msg", rs.getMessage());
     return "index";
+  }
+
+  @RequestMapping(value = "/update", method = RequestMethod.GET)
+  public String update(int xAxis, int yAxis, Model model) {
+    return "a";
   }
 }

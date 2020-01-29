@@ -12,8 +12,9 @@ public class ReversiService {
     private static Scanner stdIn = new Scanner(System.in);
     private static int turn[] = { 10 };
     private static int field[][] = new int[9][9];
-    private static List<Integer> xPathList = new ArrayList<Integer>();
-    private static List<Integer> yPathList = new ArrayList<Integer>();
+    private static List<Integer> xPathList = new ArrayList<>();
+    private static List<Integer> yPathList = new ArrayList<>();
+    private static List<String> messageList = new ArrayList<>();
 
     void init() {
         for (int i = 0; i < 9; i++) {
@@ -34,7 +35,6 @@ public class ReversiService {
     }
 
     static void showTable(final int array[][]) {
-        System.out.println("------------------------------");
         for (int m = 0; m < 9; m++) {
             for (int t = 0; t < 9; t++) {
                 if (array[m][t] == 0 || array[m][t] == 30) {
@@ -49,9 +49,7 @@ public class ReversiService {
                     System.out.print(" " + array[m][t] + " ");
                 }
             }
-            System.out.println(" ");
         }
-        System.out.println("------------------------------");
     }
 
     static boolean findVoidPath(final int x, final int y) {
@@ -712,8 +710,8 @@ public class ReversiService {
                 changeTurn(turn);
             }
         } else {
-            System.out.println("--------------------------");
-            System.out.println("正しく座標を入力してください");
+            messageList.add("--------------------------");
+            messageList.add("正しく座標を入力してください");
         }
     }
 
@@ -763,45 +761,45 @@ public class ReversiService {
             }
         }
         if (w > b) {
-            System.out.println("--------------------------");
-            System.out.println("白" + w + "個");
-            System.out.println("黒" + b + "個");
-            System.out.println("白の勝利です！");
-            System.out.println("--------------------------");
+            messageList.add("--------------------------");
+            messageList.add("白" + w + "個");
+            messageList.add("黒" + b + "個");
+            messageList.add("白の勝利です！");
+            messageList.add("--------------------------");
         } else if (w < b) {
-            System.out.println("--------------------------");
-            System.out.println("白" + w + "個");
-            System.out.println("黒" + b + "個");
-            System.out.println("黒の勝利です！");
-            System.out.println("--------------------------");
+            messageList.add("--------------------------");
+            messageList.add("白" + w + "個");
+            messageList.add("黒" + b + "個");
+            messageList.add("黒の勝利です！");
+            messageList.add("--------------------------");
         } else {
-            System.out.println("--------------------------");
-            System.out.println("白" + w + "個");
-            System.out.println("黒" + b + "個");
-            System.out.println("引き分けです！");
-            System.out.println("--------------------------");
+            messageList.add("--------------------------");
+            messageList.add("白" + w + "個");
+            messageList.add("黒" + b + "個");
+            messageList.add("引き分けです！");
+            messageList.add("--------------------------");
         }
     }
 
     static void io(int turn[]) {
         if (turn[0] == 10) {
             try {
-                System.out.println("黒の番です");
-                System.out.println("--------------------------");
-                System.out.println("x座標を入力");
+                messageList.add("黒の番です");
+                messageList.add("--------------------------");
+                messageList.add("x座標を入力");
                 final int x = stdIn.nextInt();
-                System.out.println("--------------------------");
-                System.out.println("y座標を入力");
+                messageList.add("--------------------------");
+                messageList.add("y座標を入力");
                 final int y = stdIn.nextInt();
                 if (findVoidPath(x, y)) {
                     checkField(x, y, turn);
                 } else {
-                    System.out.println("--------------------------");
-                    System.out.println("もう一度やり直してください");
+                    messageList.add("--------------------------");
+                    messageList.add("もう一度やり直してください");
                 }
             } catch (final ArrayIndexOutOfBoundsException e) {
-                System.out.println("--------------------------");
-                System.out.println("正しく座標を入力してください");
+                messageList.add("--------------------------");
+                messageList.add("正しく座標を入力してください");
             }
         } else {
             Random rand = new Random();
@@ -811,15 +809,15 @@ public class ReversiService {
             try {
                 if (findVoidPath(NPCx, NPCy)) {
                     checkField(NPCx, NPCy, turn);
-                    System.out.println("--------------------------");
-                    System.out.println("コンピュータが考え中");
+                    messageList.add("--------------------------");
+                    messageList.add("コンピュータが考え中");
                 } else {
-                    System.out.println("--------------------------");
-                    System.out.println("もう一度やり直してください");
+                    messageList.add("--------------------------");
+                    messageList.add("もう一度やり直してください");
                 }
             } catch (final ArrayIndexOutOfBoundsException e) {
-                System.out.println("--------------------------");
-                System.out.println("正しく座標を入力してください");
+                messageList.add("--------------------------");
+                messageList.add("正しく座標を入力してください");
             }
         }
     }
@@ -836,27 +834,40 @@ public class ReversiService {
         return controllerData;
     }
 
+    public String getMessage() {
+        String message = "";
+        if (messageList.size() > 10) {
+            for (int i = 0; i < 5; i++) {
+                messageList.remove(0);
+            }
+        }
+        for (int i = 0; i < messageList.size(); i++) {
+            message += messageList.get(i) + "\n";
+        }
+        return message;
+    }
+
     public void main() {
         init();
         int counter = 0;
         do {
             if (counter > 2) {
-                System.out.println("--------------------------");
-                System.out.println("駒が置けなくなりました");
+                messageList.add("--------------------------");
+                messageList.add("駒が置けなくなりました");
                 sumField();
                 break;
             }
             if (winCheck()) {
-                showTable(field);
+                // showTable(field);
                 sumField();
                 break;
             }
             addPath(turn);
-            showTable(field);
+            // showTable(field);
             if (passCheck()) {
-                System.out.println("--------------------------");
-                System.out.println("置く駒がありません");
-                System.out.println("ターンをパスします");
+                messageList.add("--------------------------");
+                messageList.add("置く駒がありません");
+                messageList.add("ターンをパスします");
                 counter += 1;
                 changeTurn(turn);
             } else {
