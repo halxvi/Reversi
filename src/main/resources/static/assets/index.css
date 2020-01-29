@@ -13,15 +13,14 @@ td {
     margin: 0px;
 }
 
-table{width: 70%;}
+table{width: auto;}
 
 .field{
     float: left;
-    width: 70%;
 }
 
 .message {
-    width: 30%;
+    width: auto;
     border-width: 3px;
     border-style: ridge;
     margin-left: auto;
