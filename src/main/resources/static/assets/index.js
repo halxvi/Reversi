@@ -1,4 +1,4 @@
-function click(x, y) {
+function click() {
     $.ajax({
         type: "GET",
         url: "/update",
