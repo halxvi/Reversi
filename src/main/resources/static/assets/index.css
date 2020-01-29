@@ -1,6 +1,6 @@
 input {
-    width: 70px;
-    height: 70px;
+    width: 75px;
+    height: 75px;
     vertical-align: bottom;
 }
 
@@ -21,6 +21,6 @@ td {
     text-align: left;
     border-width: 3px;
     border-style: ridge;
-    margin: 5px;
+    margin-left: auto;
     white-space: pre-wrap;
 }
