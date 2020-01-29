@@ -13,11 +13,11 @@
     <table>
         <tr>
             <td>
-                <input type="image" th:if="${d[0] == 0}" th:src="@{/assets/green.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[0] == 10}" th:src="@{/assets/white.png}" onclick="click(1,1)"></input>
-                <input type="image" th:if="${d[0] == 11}" th:src="@{/assets/black.png}" onclick="click(1,1)"></input>
+                <input type="image" th:if="${d[0] == 0}" th:src="@{/assets/green.png}" onclick="click(this)"></input>
+                <input type="image" th:if="${d[0] == 10}" th:src="@{/assets/white.png}" onclick="click(this)"></input>
+                <input type="image" th:if="${d[0] == 11}" th:src="@{/assets/black.png}" onclick="click(this)"></input>
                 <input type="image" th:if="${d[0] == 20}" th:src="@{/assets/brightgreen.png}"
-                    onclick="click(1,1)"></input>
+                    onclick="click(this)"></input>
             </td>
             <td>
                 <input type="image" th:if="${d[1] == 0}" th:src="@{/assets/green.png}" onclick="click(1,2)"></input>
