@@ -1,7 +1,5 @@
 package com.example.demo.controller;
 
-import com.google.gson.Gson;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +23,7 @@ public class ReversiController {
     rs.putPiece(xAxis, yAxis);
     model.addAttribute("d", rs.getData());
     model.addAttribute("msg", rs.getMessage());
-    return "index";
+    return "index::pageParts";
   }
 
   @RequestMapping(value = "/message", method = RequestMethod.GET)

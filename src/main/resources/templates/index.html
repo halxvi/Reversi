@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div class="field">
+    <div class="field" th:replace="fragement::parts">
         <table>
             <tr>
                 <td>
@@ -64,36 +64,39 @@
                         onclick="fieldClick(this.value)"></input>
                 </td>
                 <td>
-                    <input type="image" th:if="${d[5] == 0}" th:src="@{/assets/green.png}" onclick="click(1,6)"></input>
-                    <input type="image" th:if="${d[5] == 10}" th:src="@{/assets/white.png}"
-                        onclick="click(1,6)"></input>
-                    <input type="image" th:if="${d[5] == 11}" th:src="@{/assets/black.png}"
-                        onclick="click(1,6)"></input>
-                    <input type="image" th:if="${d[5] == 20}" th:src="@{/assets/brightgreen.png}"
-                        onclick="click(1,6)"></input>
+                    <input type="image" th:if="${d[5] == 0}" th:src="@{/assets/green.png}" value="1:6"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[5] == 10}" th:src="@{/assets/white.png}" value="1:6"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[5] == 11}" th:src="@{/assets/black.png}" value="1:6"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[5] == 20}" th:src="@{/assets/brightgreen.png}" value="1:6"
+                        onclick="fieldClick(this.value)"></input>
                 </td>
                 <td>
-                    <input type="image" th:if="${d[6] == 0}" th:src="@{/assets/green.png}" onclick="click(1,7)"></input>
-                    <input type="image" th:if="${d[6] == 10}" th:src="@{/assets/white.png}"
-                        onclick="click(1,7)"></input>
-                    <input type="image" th:if="${d[6] == 11}" th:src="@{/assets/black.png}"
-                        onclick="click(1,7)"></input>
-                    <input type="image" th:if="${d[6] == 20}" th:src="@{/assets/brightgreen.png}"
-                        onclick="click(1,7)"></input>
+                    <input type="image" th:if="${d[6] == 0}" th:src="@{/assets/green.png}" value="1:7"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[6] == 10}" th:src="@{/assets/white.png}" value="1:7"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[6] == 11}" th:src="@{/assets/black.png}" value="1:7"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[6] == 20}" th:src="@{/assets/brightgreen.png}" value="1:7"
+                        onclick="fieldClick(this.value)"></input>
                 </td>
                 <td>
-                    <input type="image" th:if="${d[7] == 0}" th:src="@{/assets/green.png}" onclick="click(1,8)"></input>
-                    <input type="image" th:if="${d[7] == 10}" th:src="@{/assets/white.png}"
-                        onclick="click(1,8)"></input>
-                    <input type="image" th:if="${d[7] == 11}" th:src="@{/assets/black.png}"
-                        onclick="click(1,8)"></input>
-                    <input type="image" th:if="${d[7] == 20}" th:src="@{/assets/brightgreen.png}"
-                        onclick="click(1,8)"></input>
+                    <input type="image" th:if="${d[7] == 0}" th:src="@{/assets/green.png}" value="1:8"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[7] == 10}" th:src="@{/assets/white.png}" value="1:8"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[7] == 11}" th:src="@{/assets/black.png}" value="1:8"
+                        onclick="fieldClick(this.value)"></input>
+                    <input type="image" th:if="${d[7] == 20}" th:src="@{/assets/brightgreen.png}" value="1:8"
+                        onclick="fieldClick(this.value)"></input>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>
-                    <input type="image" th:if="${d[8] == 0}" th:src="@{/assets/green.png}" onclick="click(2,1)"></input>
+                    <input type="image" th:if="${d[8] == 0}" th:src="@{/assets/green.png}"></input>
                     <input type="image" th:if="${d[8] == 10}" th:src="@{/assets/white.png}"
                         onclick="click(2,1)"></input>
                     <input type="image" th:if="${d[8] == 11}" th:src="@{/assets/black.png}"
@@ -102,7 +105,7 @@
                         onclick="click(2,1)"></input>
                 </td>
                 <td>
-                    <input type="image" th:if="${d[9] == 0}" th:src="@{/assets/green.png}" onclick="click(2,2)"></input>
+                    <input type="image" th:if="${d[9] == 0}" th:src="@{/assets/green.png}"></input>
                     <input type="image" th:if="${d[9] == 10}" th:src="@{/assets/white.png}"
                         onclick="click(2,2)"></input>
                     <input type="image" th:if="${d[9] == 11}" th:src="@{/assets/black.png}"
@@ -662,7 +665,7 @@
                     <input type="image" th:if="${d[63] == 20}" th:src="@{/assets/brightgreen.png}"
                         onclick="click(1,1)"></input>
                 </td>
-            </tr>
+            </tr> -->
         </table>
     </div>
     <div class="message" th:text=${msg}></div>

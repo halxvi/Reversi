@@ -7,7 +7,7 @@ function fieldClick(value) {
         url: "/update",
         data: { xAxis: x, yAxis: y },
         success: function (res) {
-            console.log(res);
+            $(".field").html(res);
         }
         , error: function (res) {
             console.log(res);
