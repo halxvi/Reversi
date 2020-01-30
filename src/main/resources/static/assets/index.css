@@ -5,7 +5,7 @@ input {
 table,
 tr,
 td {
-    border: solid 3px black;
+    border: solid 2px black;
     border-collapse: collapse;
     padding: 0px;
     margin: 0px;
