@@ -32,6 +32,7 @@ public class ReversiService {
         }
         // x0y0
         field[0][0] = 30;
+        messageList.clear();
     }
 
     static void showTable(final int array[][]) {
@@ -781,24 +782,15 @@ public class ReversiService {
         }
     }
 
-    static void io(int turn[]) {
+    static void io(int x, int y, int turn[]) {
         if (turn[0] == 10) {
             try {
-                messageList.add("黒の番です");
-                messageList.add("--------------------------");
-                messageList.add("x座標を入力");
-                final int x = stdIn.nextInt();
-                messageList.add("--------------------------");
-                messageList.add("y座標を入力");
-                final int y = stdIn.nextInt();
                 if (findVoidPath(x, y)) {
                     checkField(x, y, turn);
                 } else {
-                    messageList.add("--------------------------");
                     messageList.add("もう一度やり直してください");
                 }
             } catch (final ArrayIndexOutOfBoundsException e) {
-                messageList.add("--------------------------");
                 messageList.add("正しく座標を入力してください");
             }
         } else {
@@ -809,14 +801,11 @@ public class ReversiService {
             try {
                 if (findVoidPath(NPCx, NPCy)) {
                     checkField(NPCx, NPCy, turn);
-                    messageList.add("--------------------------");
                     messageList.add("コンピュータが考え中");
                 } else {
-                    messageList.add("--------------------------");
                     messageList.add("もう一度やり直してください");
                 }
             } catch (final ArrayIndexOutOfBoundsException e) {
-                messageList.add("--------------------------");
                 messageList.add("正しく座標を入力してください");
             }
         }
@@ -847,34 +836,22 @@ public class ReversiService {
         return message;
     }
 
+    public void putPiece(int xAxis, int yAxis) {
+        if (winCheck()) {
+            sumField();
+        }
+        addPath(turn);
+        if (passCheck()) {
+            messageList.add("置く駒がありません");
+            messageList.add("ターンをパスします");
+            changeTurn(turn);
+        } else {
+            io(xAxis, yAxis, turn);
+        }
+    }
+
     public void start() {
+        init();
         messageList.add("ゲーム開始ィィィィ！！！！！！");
-        // init();
-        // int counter = 0;
-        // do {
-        // if (counter > 2) {
-        // messageList.add("--------------------------");
-        // messageList.add("駒が置けなくなりました");
-        // sumField();
-        // break;
-        // }
-        // if (winCheck()) {
-        // // showTable(field);
-        // sumField();
-        // break;
-        // }
-        // addPath(turn);
-        // // showTable(field);
-        // if (passCheck()) {
-        // messageList.add("--------------------------");
-        // messageList.add("置く駒がありません");
-        // messageList.add("ターンをパスします");
-        // counter += 1;
-        // changeTurn(turn);
-        // } else {
-        // counter = 0;
-        // io(turn);
-        // }
-        // } while (true);
     }
 }
