@@ -20,7 +20,7 @@ function checkMessage() {
         type: "GET",
         url: "/message",
         success: function (res) {
-            $("#message").html(res);
+            $(".message").html(res);
         }, error: function (res) {
             console.log(res);
         }
