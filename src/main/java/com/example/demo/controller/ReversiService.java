@@ -840,7 +840,6 @@ public class ReversiService {
         if (winCheck()) {
             sumField();
         }
-        addPath(turn);
         if (passCheck()) {
             messageList.add("置く駒がありません");
             messageList.add("ターンをパスします");
@@ -848,10 +847,12 @@ public class ReversiService {
         } else {
             io(xAxis, yAxis, turn);
         }
+        addPath(turn);
     }
 
     public void start() {
         init();
+        addPath(turn);
         messageList.add("ゲーム開始ィィィィ！！！！！！");
     }
 }

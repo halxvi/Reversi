@@ -8,7 +8,6 @@ function fieldClick(value) {
         data: { xAxis: x, yAxis: y },
         success: function (res) {
             $(".field").html(res);
-            console.log(res)
         }
         , error: function (res) {
             console.log(res);
