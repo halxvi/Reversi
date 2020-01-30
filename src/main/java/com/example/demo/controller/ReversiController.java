@@ -23,7 +23,7 @@ public class ReversiController {
     rs.putPiece(xAxis, yAxis);
     model.addAttribute("d", rs.getData());
     model.addAttribute("msg", rs.getMessage());
-    return "index::parts";
+    return "field::parts";
   }
 
   @RequestMapping(value = "/message", method = RequestMethod.GET)
