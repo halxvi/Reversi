@@ -19,6 +19,7 @@ public class ReversiController {
   }
 
   @RequestMapping(value = "/update*", method = RequestMethod.GET)
+  @ResponseBody
   public String update(int xAxis, int yAxis, Model model) {
     rs.putPiece(xAxis, yAxis);
     model.addAttribute("d", rs.getData());
