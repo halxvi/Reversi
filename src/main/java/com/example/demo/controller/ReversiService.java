@@ -790,6 +790,7 @@ public class ReversiService {
             }
         } catch (final ArrayIndexOutOfBoundsException e) {
             messageList.add("内部エラー");
+            messageList.add("x" + x + "y" + y);
         }
     }
 
