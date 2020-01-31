@@ -6,12 +6,12 @@ import java.util.Random;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ReversiService {
-    private static int turn[] = { 10 };
-    private static int field[][] = new int[9][9];
-    private static List<Integer> xPathList = new ArrayList<>();
-    private static List<Integer> yPathList = new ArrayList<>();
-    private static List<String> messageList = new ArrayList<>();
+class ReversiService {
+    private int turn[] = { 10 };
+    private int field[][] = new int[9][9];
+    private List<Integer> xPathList = new ArrayList<>();
+    private List<Integer> yPathList = new ArrayList<>();
+    private List<String> messageList = new ArrayList<>();
 
     void init() {
         for (int i = 0; i < 9; i++) {
@@ -32,7 +32,7 @@ public class ReversiService {
         messageList.clear();
     }
 
-    // static void showTable(final int array[][]) {
+    // void showTable(final int array[][]) {
     // for (int m = 0; m < 9; m++) {
     // for (int t = 0; t < 9; t++) {
     // if (array[m][t] == 0 || array[m][t] == 30) {
@@ -50,7 +50,7 @@ public class ReversiService {
     // }
     // }
 
-    static boolean findVoidPath(final int x, final int y) {
+    boolean findVoidPath(final int x, final int y) {
         if (x > 0 && x < 9 && y > 0 && y < 9) {
             if (field[y][x] == 0 || field[y][x] == 20) {
                 return true;
@@ -62,7 +62,7 @@ public class ReversiService {
         }
     }
 
-    static void addPath(int turn[]) {
+    void addPath(int turn[]) {
         int x = 0;
         int y = 0;
         int f;
@@ -286,7 +286,7 @@ public class ReversiService {
         }
     }
 
-    static void flip(final int x, final int y, final int turn[]) {
+    void flip(final int x, final int y, final int turn[]) {
         int f;
         if (turn[0] == 11) {
             f = 10;
@@ -681,7 +681,7 @@ public class ReversiService {
         }
     }
 
-    static void clearFieldPath() {
+    void clearFieldPath() {
         for (int y = 1; y < 9; y++) {
             for (int x = 1; x < 9; x++) {
                 if (field[y][x] == 20) {
@@ -691,7 +691,7 @@ public class ReversiService {
         }
     }
 
-    static boolean checkPath(int x, int y) {
+    boolean checkPath(int x, int y) {
         boolean flag = false;
         for (int i = 0; i < xPathList.size(); i++) {
             if (xPathList.get(i) == x && yPathList.get(i) == y) {
@@ -701,7 +701,7 @@ public class ReversiService {
         return flag;
     }
 
-    static void checkField(final int x, final int y, final int turn[]) {
+    void checkField(final int x, final int y, final int turn[]) {
         if (x > 0 && x < 9 && y > 0 && y < 9) {
             if (findVoidPath(x, y) && checkPath(x, y)) {
                 flip(x, y, turn);
@@ -713,7 +713,7 @@ public class ReversiService {
         }
     }
 
-    static void changeTurn(int turn[]) {
+    void changeTurn(int turn[]) {
         if (turn[0] == 11) {
             turn[0] = 10;
         } else {
@@ -721,7 +721,7 @@ public class ReversiService {
         }
     }
 
-    static boolean passCheck(int turn[]) {
+    boolean passCheck(int turn[]) {
         boolean flag = false;
         addPath(turn);
         if (xPathList.size() == 0) {
@@ -730,7 +730,7 @@ public class ReversiService {
         return flag;
     }
 
-    static boolean winCheck() {
+    boolean winCheck() {
         boolean flag = false;
         int counter = 0;
         for (int i = 1; i < 9; i++) {
@@ -746,7 +746,7 @@ public class ReversiService {
         return flag;
     }
 
-    static void sumField() {
+    void sumField() {
         int w = 0;
         int b = 0;
         for (int i = 1; i < 9; i++) {
@@ -795,7 +795,7 @@ public class ReversiService {
         }
     }
 
-    public int[] getData() {
+    int[] getData() {
         int controllerData[] = new int[64];
         int counter = 0;
         for (int i = 1; i < 9; i++) {
@@ -807,7 +807,7 @@ public class ReversiService {
         return controllerData;
     }
 
-    public String getMessage() {
+    String getMessage() {
         String message = "";
         if (messageList.size() > 10) {
             for (int i = 0; i < 2; i++) {
@@ -820,7 +820,7 @@ public class ReversiService {
         return message;
     }
 
-    public void putPiece(int xAxis, int yAxis) {
+    void putPiece(int xAxis, int yAxis) {
         myDo(xAxis, yAxis);
         if (winCheck()) {
             sumField();
@@ -830,7 +830,7 @@ public class ReversiService {
         }
     }
 
-    public void nextTurn() {
+    void nextTurn() {
         int f[] = {};
         if (turn[0] == 10) {
             f[0] = 11;
@@ -880,7 +880,7 @@ public class ReversiService {
         }
     }
 
-    public void start() {
+    void start() {
         init();
         addPath(turn);
         messageList.add("ゲーム開始ィィィィ！！！！！！");
