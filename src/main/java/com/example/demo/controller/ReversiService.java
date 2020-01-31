@@ -708,7 +708,6 @@ class ReversiService {
                 changeTurn(turn);
             }
         } else {
-            messageList.add("--------------------------");
             messageList.add("正しく座標を入力してください");
         }
     }
@@ -824,6 +823,7 @@ class ReversiService {
         } catch (final ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
+            messageList.add(e.getClass().getName() + e.getMessage());
         }
     }
 
