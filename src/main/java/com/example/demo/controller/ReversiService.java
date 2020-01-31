@@ -834,13 +834,17 @@ public class ReversiService {
     }
 
     public void putPiece(int xAxis, int yAxis) {
+        io(xAxis, yAxis, turn);
+        nextTurn();
+    }
+
+    public void nextTurn() {
         int f[] = {};
         if (turn[0] == 10) {
             f[0] = 11;
         } else {
             f[0] = 10;
         }
-        io(xAxis, yAxis, turn);
         addPath(f);
         if (winCheck()) {
             sumField();
