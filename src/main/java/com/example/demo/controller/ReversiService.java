@@ -3,13 +3,10 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
-
 import org.springframework.stereotype.Service;
 
 @Service
 public class ReversiService {
-    private static Scanner stdIn = new Scanner(System.in);
     private static int turn[] = { 10 };
     private static int field[][] = new int[9][9];
     private static List<Integer> xPathList = new ArrayList<>();
@@ -825,7 +822,7 @@ public class ReversiService {
 
     public String getMessage() {
         String message = "";
-        if (messageList.size() > 5) {
+        if (messageList.size() > 10) {
             for (int i = 0; i < 2; i++) {
                 messageList.remove(0);
             }
@@ -837,17 +834,22 @@ public class ReversiService {
     }
 
     public void putPiece(int xAxis, int yAxis) {
+        int f[] = {};
+        if (turn[0] == 10) {
+            f[0] = 11;
+        } else {
+            f[0] = 10;
+        }
+        io(xAxis, yAxis, turn);
+        addPath(f);
         if (winCheck()) {
             sumField();
         }
         if (passCheck()) {
             messageList.add("置く駒がありません");
             messageList.add("ターンをパスします");
-            changeTurn(turn);
-        } else {
-            io(xAxis, yAxis, turn);
+            changeTurn(f);
         }
-        addPath(turn);
     }
 
     public void start() {
