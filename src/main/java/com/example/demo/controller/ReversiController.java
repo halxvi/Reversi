@@ -20,7 +20,7 @@ public class ReversiController {
 
   @RequestMapping(value = "/update*", method = RequestMethod.GET)
   public String update(int xAxis, int yAxis, Model model) {
-    rs.putPiece(xAxis, yAxis);
+    rs.putPiece(xAxis + 1, yAxis + 1);
     model.addAttribute("d", rs.getData());
     model.addAttribute("msg", rs.getMessage());
     return "field::parts";

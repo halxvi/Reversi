@@ -780,21 +780,6 @@ class ReversiService {
         }
     }
 
-    void myDo(int x, int y) {
-        try {
-            if (findVoidPath(x, y)) {
-                checkField(x, y, turn);
-                nextTurn();
-            } else {
-                messageList.add("正しい場所を選択してください");
-                messageList.add("x" + x + "y" + y);
-            }
-        } catch (final ArrayIndexOutOfBoundsException e) {
-            messageList.add("座標外です");
-            messageList.add("x" + x + "y" + y);
-        }
-    }
-
     int[] getData() {
         int controllerData[] = new int[64];
         int counter = 0;
@@ -824,6 +809,21 @@ class ReversiService {
         myDo(xAxis, yAxis);
         if (winCheck()) {
             sumField();
+        }
+    }
+
+    void myDo(int x, int y) {
+        try {
+            if (findVoidPath(x, y)) {
+                checkField(x, y, turn);
+                nextTurn();
+            } else {
+                messageList.add("正しい場所を選択してください");
+                messageList.add("x" + x + "y" + y);
+            }
+        } catch (final ArrayIndexOutOfBoundsException e) {
+            messageList.add("座標外です");
+            messageList.add("x" + x + "y" + y);
         }
     }
 
