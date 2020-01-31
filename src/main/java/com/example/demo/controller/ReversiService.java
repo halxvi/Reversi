@@ -32,23 +32,23 @@ public class ReversiService {
         messageList.clear();
     }
 
-    static void showTable(final int array[][]) {
-        for (int m = 0; m < 9; m++) {
-            for (int t = 0; t < 9; t++) {
-                if (array[m][t] == 0 || array[m][t] == 30) {
-                    System.out.print("   ");
-                } else if (array[m][t] == 10) {
-                    System.out.print(" B ");
-                } else if (array[m][t] == 11) {
-                    System.out.print(" W ");
-                } else if (array[m][t] == 20) {
-                    System.out.print(" # ");
-                } else {
-                    System.out.print(" " + array[m][t] + " ");
-                }
-            }
-        }
-    }
+    // static void showTable(final int array[][]) {
+    // for (int m = 0; m < 9; m++) {
+    // for (int t = 0; t < 9; t++) {
+    // if (array[m][t] == 0 || array[m][t] == 30) {
+    // System.out.print(" ");
+    // } else if (array[m][t] == 10) {
+    // System.out.print(" B ");
+    // } else if (array[m][t] == 11) {
+    // System.out.print(" W ");
+    // } else if (array[m][t] == 20) {
+    // System.out.print(" # ");
+    // } else {
+    // System.out.print(" " + array[m][t] + " ");
+    // }
+    // }
+    // }
+    // }
 
     static boolean findVoidPath(final int x, final int y) {
         if (x > 0 && x < 9 && y > 0 && y < 9) {
@@ -785,7 +785,8 @@ public class ReversiService {
             if (findVoidPath(x, y)) {
                 checkField(x, y, turn);
             } else {
-                messageList.add("正しい場所の選択してください");
+                messageList.add("正しい場所を選択してください");
+                messageList.add("x" + x + "y" + y);
             }
         } catch (final ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
