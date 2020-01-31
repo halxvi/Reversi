@@ -1,7 +1,7 @@
 function fieldClick(value) {
     const data = value.split(":");
-    const x = data[1];
-    const y = data[0];
+    const x = data[0];
+    const y = data[1];
     $.ajax({
         type: "GET",
         url: "/update",
