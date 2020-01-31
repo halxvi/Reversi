@@ -50,7 +50,7 @@ class ReversiService {
     // }
     // }
 
-    boolean findVoidPath(final int x, final int y) {
+    boolean findVoidPath(int x, int y) {
         if (x > 0 && x < 9 && y > 0 && y < 9) {
             if (field[y][x] == 0 || field[y][x] == 20) {
                 return true;
@@ -792,7 +792,6 @@ class ReversiService {
         } catch (final ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
-            messageList.add(e.getMessage());
         }
     }
 
