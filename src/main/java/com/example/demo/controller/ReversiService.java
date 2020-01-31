@@ -721,8 +721,9 @@ public class ReversiService {
         }
     }
 
-    static boolean passCheck() {
+    static boolean passCheck(int turn[]) {
         boolean flag = false;
+        addPath(turn);
         if (xPathList.size() == 0) {
             flag = true;
         }
@@ -779,32 +780,16 @@ public class ReversiService {
         }
     }
 
-    static void io(int x, int y, int turn[]) {
-        if (turn[0] == 10) {
-            try {
-                if (findVoidPath(x, y)) {
-                    checkField(x, y, turn);
-                } else {
-                    messageList.add("もう一度やり直してください");
-                }
-            } catch (final ArrayIndexOutOfBoundsException e) {
-                messageList.add("正しく座標を入力してください");
+    void myDo(int x, int y, int turn[]) {
+        try {
+            if (findVoidPath(x, y)) {
+                checkField(x, y, turn);
+                nextTurn();
+            } else {
+                messageList.add("もう一度やり直してください");
             }
-        } else {
-            Random rand = new Random();
-            int a = rand.nextInt(xPathList.size());
-            int NPCx = xPathList.get(a);
-            int NPCy = yPathList.get(a);
-            try {
-                if (findVoidPath(NPCx, NPCy)) {
-                    checkField(NPCx, NPCy, turn);
-                    messageList.add("コンピュータが考え中");
-                } else {
-                    messageList.add("もう一度やり直してください");
-                }
-            } catch (final ArrayIndexOutOfBoundsException e) {
-                messageList.add("正しく座標を入力してください");
-            }
+        } catch (final ArrayIndexOutOfBoundsException e) {
+            messageList.add("内部エラー");
         }
     }
 
@@ -834,8 +819,13 @@ public class ReversiService {
     }
 
     public void putPiece(int xAxis, int yAxis) {
-        io(xAxis, yAxis, turn);
-        nextTurn();
+        myDo(xAxis, yAxis, turn);
+        if (winCheck()) {
+            sumField();
+            return;
+        } else {
+            nextTurn();
+        }
     }
 
     public void nextTurn() {
@@ -845,14 +835,46 @@ public class ReversiService {
         } else {
             f[0] = 10;
         }
-        addPath(f);
-        if (winCheck()) {
-            sumField();
+        npcDo();
+    }
+
+    void npcDo() {
+        int f[] = {};
+        if (turn[0] == 10) {
+            f[0] = 11;
+        } else {
+            f[0] = 10;
         }
-        if (passCheck()) {
-            messageList.add("置く駒がありません");
-            messageList.add("ターンをパスします");
-            changeTurn(f);
+        if (passCheck(f)) {
+            messageList.add("コンピュータが置く駒がありません");
+            messageList.add("コンピュータのターンをパスします");
+            addPath(turn);
+            return;
+        } else {
+            Random rand = new Random();
+            int a = rand.nextInt(xPathList.size());
+            int NPCx = xPathList.get(a);
+            int NPCy = yPathList.get(a);
+            try {
+                if (findVoidPath(NPCx, NPCy)) {
+                    checkField(NPCx, NPCy, f);
+                    messageList.add("コンピュータが考え中");
+                } else {
+                    messageList.add("もう一度やり直してください");
+                }
+            } catch (final ArrayIndexOutOfBoundsException e) {
+                messageList.add("正しく座標を入力してください");
+            }
+            if (winCheck()) {
+                sumField();
+                return;
+            }
+            if (passCheck(turn)) {
+                messageList.add("自分が置く駒がありません");
+                messageList.add("自分のターンをパスします");
+                addPath(f);
+                npcDo();
+            }
         }
     }
 
