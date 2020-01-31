@@ -784,6 +784,7 @@ class ReversiService {
         try {
             if (findVoidPath(x, y)) {
                 checkField(x, y, turn);
+                nextTurn();
             } else {
                 messageList.add("正しい場所を選択してください");
                 messageList.add("x" + x + "y" + y);
@@ -824,9 +825,6 @@ class ReversiService {
         myDo(xAxis, yAxis);
         if (winCheck()) {
             sumField();
-            return;
-        } else {
-            nextTurn();
         }
     }
 
