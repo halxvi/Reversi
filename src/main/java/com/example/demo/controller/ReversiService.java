@@ -751,10 +751,10 @@ class ReversiService {
         int b = 0;
         for (int i = 1; i < 9; i++) {
             for (int r = 1; r < 9; r++) {
-                if (field[i][r] == 10) {
+                if (field[i][r] == 11) {
                     b += 1;
                 }
-                if (field[i][r] == 11) {
+                if (field[i][r] == 10) {
                     w += 1;
                 }
             }
