@@ -911,7 +911,6 @@ class ReversiService {
     // addPath(turn);
     // }
     // }
-    }
 
     void start() {
         init();
