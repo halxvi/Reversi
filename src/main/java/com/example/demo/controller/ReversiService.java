@@ -822,6 +822,7 @@ class ReversiService {
                 checkField(x, y, turn);
                 messageList.add("3");
                 npcDo();
+                messageList.add("13");
             } else {
                 messageList.add("正しい場所を選択してください");
                 messageList.add("x" + x + "y" + y);
