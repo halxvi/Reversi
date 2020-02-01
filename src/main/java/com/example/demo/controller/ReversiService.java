@@ -704,13 +704,9 @@ class ReversiService {
     }
 
     void checkField(final int x, final int y, final int turn) {
-        messageList.add("8");
         if (x > 0 && x < 9 && y > 0 && y < 9) {
-            messageList.add("9");
             if (findVoidPath(x, y) && checkPath(x, y)) {
-                messageList.add("10");
                 flip(x, y, turn);
-                messageList.add("11");
             }
         } else {
             messageList.add("正しく座標を入力してください");
@@ -819,13 +815,9 @@ class ReversiService {
     void myDo(int x, int y) {
         int t = turn[0];
         try {
-            messageList.add("1");
             if (findVoidPath(x, y)) {
-                messageList.add("2");
                 checkField(x, y, t);
-                messageList.add("3");
                 npcDo();
-                messageList.add("13");
             } else {
                 messageList.add("正しい場所を選択してください");
                 messageList.add("x" + x + "y" + y);
@@ -842,7 +834,6 @@ class ReversiService {
     }
 
     void npcDo() {
-        messageList.add("7");
         int t = turn[0];
         int f = 0;
         if (turn[0] == 10) {
@@ -855,13 +846,10 @@ class ReversiService {
         int a = rand.nextInt(xPathList.size());
         int NPCx = xPathList.get(a);
         int NPCy = yPathList.get(a);
-        messageList.add("4");
         try {
             if (findVoidPath(NPCx, NPCy)) {
-                messageList.add("5");
                 checkField(NPCx, NPCy, f);
-                messageList.add("コンピュータが考え中");
-                messageList.add("6");
+                messageList.add("コンピュータのターン");
             } else {
                 messageList.add("もう一度やり直してください");
             }
