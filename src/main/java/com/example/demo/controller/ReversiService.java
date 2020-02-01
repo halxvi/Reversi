@@ -813,7 +813,9 @@ class ReversiService {
 
     void myDo(int x, int y) {
         try {
+            messageList.add("1");
             if (findVoidPath(x, y)) {
+                messageList.add("2");
                 checkField(x, y, turn);
                 nextTurn();
             } else {
@@ -828,12 +830,6 @@ class ReversiService {
     }
 
     void nextTurn() {
-        int f[] = {};
-        if (turn[0] == 10) {
-            f[0] = 11;
-        } else {
-            f[0] = 10;
-        }
         npcDo();
     }
 
@@ -848,7 +844,6 @@ class ReversiService {
             messageList.add("コンピュータが置く駒がありません");
             messageList.add("コンピュータのターンをパスします");
             addPath(turn);
-            return;
         } else {
             Random rand = new Random();
             int a = rand.nextInt(xPathList.size());
@@ -873,6 +868,8 @@ class ReversiService {
                 messageList.add("自分のターンをパスします");
                 addPath(f);
                 npcDo();
+            } else {
+                addPath(turn);
             }
         }
     }
