@@ -841,6 +841,7 @@ class ReversiService {
         } else {
             f[0] = 10;
         }
+        messageList.add("7");
         if (passCheck(f)) {
             messageList.add("コンピュータが置く駒がありません");
             messageList.add("コンピュータのターンをパスします");
