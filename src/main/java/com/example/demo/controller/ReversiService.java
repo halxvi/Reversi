@@ -817,6 +817,7 @@ class ReversiService {
             if (findVoidPath(x, y)) {
                 messageList.add("2");
                 checkField(x, y, turn);
+                messageList.add("3");
                 nextTurn();
             } else {
                 messageList.add("正しい場所を選択してください");
