@@ -847,41 +847,59 @@ class ReversiService {
             f[0] = 10;
         }
         messageList.add("7");
-        if (passCheck(f)) {
-            messageList.add("コンピュータが置く駒がありません");
-            messageList.add("コンピュータのターンをパスします");
-            addPath(turn);
-        } else {
-            Random rand = new Random();
-            int a = rand.nextInt(xPathList.size());
-            int NPCx = xPathList.get(a);
-            int NPCy = yPathList.get(a);
-            messageList.add("4");
-            try {
-                if (findVoidPath(NPCx, NPCy)) {
-                    messageList.add("5");
-                    checkField(NPCx, NPCy, f);
-                    messageList.add("コンピュータが考え中");
-                    messageList.add("6");
-                } else {
-                    messageList.add("もう一度やり直してください");
-                }
-            } catch (final ArrayIndexOutOfBoundsException e) {
-                messageList.add("正しく座標を入力してください");
-            }
-            if (winCheck()) {
-                sumField();
-                return;
-            }
-            if (passCheck(turn)) {
-                messageList.add("自分が置く駒がありません");
-                messageList.add("自分のターンをパスします");
-                addPath(f);
-                npcDo();
+        Random rand = new Random();
+        int a = rand.nextInt(xPathList.size());
+        int NPCx = xPathList.get(a);
+        int NPCy = yPathList.get(a);
+        messageList.add("4");
+        try {
+            if (findVoidPath(NPCx, NPCy)) {
+                messageList.add("5");
+                checkField(NPCx, NPCy, f);
+                messageList.add("コンピュータが考え中");
+                messageList.add("6");
             } else {
-                addPath(turn);
+                messageList.add("もう一度やり直してください");
             }
+        } catch (final ArrayIndexOutOfBoundsException e) {
+            messageList.add("正しく座標を入力してください");
         }
+        addPath(turn);
+        // if (passCheck(f)) {
+        // messageList.add("コンピュータが置く駒がありません");
+        // messageList.add("コンピュータのターンをパスします");
+        // addPath(turn);
+        // } else {
+        // Random rand = new Random();
+        // int a = rand.nextInt(xPathList.size());
+        // int NPCx = xPathList.get(a);
+        // int NPCy = yPathList.get(a);
+        // messageList.add("4");
+        // try {
+        // if (findVoidPath(NPCx, NPCy)) {
+        // messageList.add("5");
+        // checkField(NPCx, NPCy, f);
+        // messageList.add("コンピュータが考え中");
+        // messageList.add("6");
+        // } else {
+        // messageList.add("もう一度やり直してください");
+        // }
+        // } catch (final ArrayIndexOutOfBoundsException e) {
+        // messageList.add("正しく座標を入力してください");
+        // }
+        // if (winCheck()) {
+        // sumField();
+        // return;
+        // }
+        // if (passCheck(turn)) {
+        // messageList.add("自分が置く駒がありません");
+        // messageList.add("自分のターンをパスします");
+        // addPath(f);
+        // npcDo();
+        // } else {
+        // addPath(turn);
+        // }
+        // }
     }
 
     void start() {
