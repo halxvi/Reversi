@@ -828,6 +828,7 @@ class ReversiService {
                 messageList.add("x" + x + "y" + y);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.print(e.getStackTrace());
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
         }
