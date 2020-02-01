@@ -821,19 +821,15 @@ class ReversiService {
                 messageList.add("2");
                 checkField(x, y, turn);
                 messageList.add("3");
-                nextTurn();
+                npcDo();
             } else {
                 messageList.add("正しい場所を選択してください");
                 messageList.add("x" + x + "y" + y);
             }
-        } catch (final ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
         }
-    }
-
-    void nextTurn() {
-        npcDo();
     }
 
     void npcDo() {
