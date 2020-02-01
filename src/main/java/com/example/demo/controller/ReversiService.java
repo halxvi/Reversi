@@ -798,7 +798,7 @@ class ReversiService {
 
     String getMessage() {
         String message = "";
-        if (messageList.size() > 10) {
+        if (messageList.size() > 20) {
             for (int i = 0; i < 2; i++) {
                 messageList.remove(0);
             }
@@ -831,7 +831,6 @@ class ReversiService {
         } catch (final ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
-            messageList.add(e.getClass().getName() + e.getMessage());
         }
     }
 
