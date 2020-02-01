@@ -830,11 +830,11 @@ class ReversiService {
                 messageList.add("x" + x + "y" + y);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            String st = sw.toString();
-            messageList.add(st);
+            // StringWriter sw = new StringWriter();
+            // PrintWriter pw = new PrintWriter(sw);
+            // e.printStackTrace(pw);
+            // String st = sw.toString();
+            // messageList.add(st);
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
         }
