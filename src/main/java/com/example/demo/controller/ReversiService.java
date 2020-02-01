@@ -794,7 +794,7 @@ class ReversiService {
 
     String getMessage() {
         String message = "";
-        if (messageList.size() > 20) {
+        if (messageList.size() > 10) {
             for (int i = 0; i < 2; i++) {
                 messageList.remove(0);
             }
@@ -841,58 +841,76 @@ class ReversiService {
         } else {
             f = 10;
         }
-        addPath(f);
-        Random rand = new Random();
-        int a = rand.nextInt(xPathList.size());
-        int NPCx = xPathList.get(a);
-        int NPCy = yPathList.get(a);
-        try {
-            if (findVoidPath(NPCx, NPCy)) {
-                checkField(NPCx, NPCy, f);
-                messageList.add("コンピュータのターン");
-            } else {
-                messageList.add("もう一度やり直してください");
-            }
-        } catch (final ArrayIndexOutOfBoundsException e) {
-            messageList.add("正しく座標を入力してください");
+        if (winCheck()) {
+            sumField();
+            return;
         }
-        addPath(t);
-        messageList.add("あなたのターンです");
-        // if (passCheck(f)) {
-        // messageList.add("コンピュータが置く駒がありません");
-        // messageList.add("コンピュータのターンをパスします");
-        // addPath(turn);
-        // } else {
-        // Random rand = new Random();
-        // int a = rand.nextInt(xPathList.size());
-        // int NPCx = xPathList.get(a);
-        // int NPCy = yPathList.get(a);
-        // messageList.add("4");
-        // try {
-        // if (findVoidPath(NPCx, NPCy)) {
-        // messageList.add("5");
-        // checkField(NPCx, NPCy, f);
-        // messageList.add("コンピュータが考え中");
-        // messageList.add("6");
-        // } else {
-        // messageList.add("もう一度やり直してください");
-        // }
-        // } catch (final ArrayIndexOutOfBoundsException e) {
-        // messageList.add("正しく座標を入力してください");
-        // }
-        // if (winCheck()) {
-        // sumField();
-        // return;
-        // }
-        // if (passCheck(turn)) {
-        // messageList.add("自分が置く駒がありません");
-        // messageList.add("自分のターンをパスします");
-        // addPath(f);
-        // npcDo();
-        // } else {
-        // addPath(turn);
-        // }
-        // }
+        if (passCheck(f)) {
+            messageList.add("コンピュータが置く駒がありません");
+            messageList.add("コンピュータのターンをパスします");
+        } else {
+            addPath(f);
+            Random rand = new Random();
+            int a = rand.nextInt(xPathList.size());
+            int NPCx = xPathList.get(a);
+            int NPCy = yPathList.get(a);
+            try {
+                if (findVoidPath(NPCx, NPCy)) {
+                    checkField(NPCx, NPCy, f);
+                    messageList.add("コンピュータのターン");
+                } else {
+                    messageList.add("コンピュータ:もう一度やり直してください");
+                }
+            } catch (final ArrayIndexOutOfBoundsException e) {
+                messageList.add("コンピュータ：正しく座標を入力できませんでした");
+            }
+        }
+        if (passCheck(t)) {
+            messageList.add("自分が置く駒がありません");
+            messageList.add("自分のターンをパスします");
+            addPath(f);
+            npcDo();
+        } else {
+            addPath(t);
+            messageList.add("あなたのターンです");
+        }
+    }
+
+    // if (passCheck(f)) {
+    // messageList.add("コンピュータが置く駒がありません");
+    // messageList.add("コンピュータのターンをパスします");
+    // addPath(turn);
+    // } else {
+    // Random rand = new Random();
+    // int a = rand.nextInt(xPathList.size());
+    // int NPCx = xPathList.get(a);
+    // int NPCy = yPathList.get(a);
+    // messageList.add("4");
+    // try {
+    // if (findVoidPath(NPCx, NPCy)) {
+    // messageList.add("5");
+    // checkField(NPCx, NPCy, f);
+    // messageList.add("コンピュータが考え中");
+    // messageList.add("6");
+    // } else {
+    // messageList.add("もう一度やり直してください");
+    // }
+    // } catch (final ArrayIndexOutOfBoundsException e) {
+    // messageList.add("正しく座標を入力してください");
+    // }
+    // if (winCheck()) {
+    // sumField();
+    // return;
+    // }
+    // if (passCheck(turn)) {
+    // messageList.add("自分が置く駒がありません");
+    // messageList.add("自分のターンをパスします");
+    // addPath(f);
+    // npcDo();
+    // } else {
+    // addPath(turn);
+    // }
+    // }
     }
 
     void start() {
