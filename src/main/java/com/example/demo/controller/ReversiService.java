@@ -709,8 +709,6 @@ class ReversiService {
                 messageList.add("10");
                 flip(x, y, turn);
                 messageList.add("11");
-                changeTurn(turn);
-                messageList.add("12");
             }
         } else {
             messageList.add("正しく座標を入力してください");
