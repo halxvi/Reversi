@@ -34,24 +34,6 @@ class ReversiService {
         messageList.clear();
     }
 
-    // void showTable(final int array[][]) {
-    // for (int m = 0; m < 9; m++) {
-    // for (int t = 0; t < 9; t++) {
-    // if (array[m][t] == 0 || array[m][t] == 30) {
-    // System.out.print(" ");
-    // } else if (array[m][t] == 10) {
-    // System.out.print(" B ");
-    // } else if (array[m][t] == 11) {
-    // System.out.print(" W ");
-    // } else if (array[m][t] == 20) {
-    // System.out.print(" # ");
-    // } else {
-    // System.out.print(" " + array[m][t] + " ");
-    // }
-    // }
-    // }
-    // }
-
     boolean findVoidPath(int x, int y) {
         if (x > 0 && x < 9 && y > 0 && y < 9) {
             if (field[y][x] == 0 || field[y][x] == 20) {
@@ -713,14 +695,6 @@ class ReversiService {
         }
     }
 
-    // void changeTurn(int turn[]) {
-    // if (turn[0] == 11) {
-    // turn[0] = 10;
-    // } else {
-    // turn[0] = 11;
-    // }
-    // }
-
     boolean passCheck(int turn) {
         boolean flag = false;
         addPath(turn);
@@ -823,11 +797,6 @@ class ReversiService {
                 messageList.add("x" + x + "y" + y);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            // StringWriter sw = new StringWriter();
-            // PrintWriter pw = new PrintWriter(sw);
-            // e.printStackTrace(pw);
-            // String st = sw.toString();
-            // messageList.add(st);
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
         }
@@ -840,10 +809,6 @@ class ReversiService {
             f = 11;
         } else {
             f = 10;
-        }
-        if (winCheck()) {
-            sumField();
-            return;
         }
         if (passCheck(f)) {
             messageList.add("コンピュータが置く駒がありません");
@@ -875,42 +840,6 @@ class ReversiService {
             messageList.add("あなたのターンです");
         }
     }
-
-    // if (passCheck(f)) {
-    // messageList.add("コンピュータが置く駒がありません");
-    // messageList.add("コンピュータのターンをパスします");
-    // addPath(turn);
-    // } else {
-    // Random rand = new Random();
-    // int a = rand.nextInt(xPathList.size());
-    // int NPCx = xPathList.get(a);
-    // int NPCy = yPathList.get(a);
-    // messageList.add("4");
-    // try {
-    // if (findVoidPath(NPCx, NPCy)) {
-    // messageList.add("5");
-    // checkField(NPCx, NPCy, f);
-    // messageList.add("コンピュータが考え中");
-    // messageList.add("6");
-    // } else {
-    // messageList.add("もう一度やり直してください");
-    // }
-    // } catch (final ArrayIndexOutOfBoundsException e) {
-    // messageList.add("正しく座標を入力してください");
-    // }
-    // if (winCheck()) {
-    // sumField();
-    // return;
-    // }
-    // if (passCheck(turn)) {
-    // messageList.add("自分が置く駒がありません");
-    // messageList.add("自分のターンをパスします");
-    // addPath(f);
-    // npcDo();
-    // } else {
-    // addPath(turn);
-    // }
-    // }
 
     void start() {
         init();
