@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.io.StringWriter;
+import java.io.PrintWriter;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -828,7 +830,11 @@ class ReversiService {
                 messageList.add("x" + x + "y" + y);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            e.getMessage(e.getStackTrace()
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            String st = sw.toString();
+            messageList.add(st);
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
         }
