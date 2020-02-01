@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 class ReversiService {
-    private int turn[] = { 10 };
+    private int turn[] = { 11 };
     private int field[][] = new int[9][9];
     private List<Integer> xPathList = new ArrayList<>();
     private List<Integer> yPathList = new ArrayList<>();
@@ -841,6 +841,7 @@ class ReversiService {
             f[0] = 10;
         }
         messageList.add("7");
+        addPath(f);
         Random rand = new Random();
         int a = rand.nextInt(xPathList.size());
         int NPCx = xPathList.get(a);
