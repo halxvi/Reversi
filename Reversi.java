@@ -90,7 +90,7 @@ class Reversi {
                                     if (field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
-                                        field[y][x] = 20;
+                                        field[y][x] = 21;
                                     }
                                 }
                             }
@@ -104,7 +104,7 @@ class Reversi {
                                     if (field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
-                                        field[y][x] = 20;
+                                        field[y][x] = 22;
                                     }
                                 }
                             }
@@ -118,7 +118,7 @@ class Reversi {
                                     if (field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
-                                        field[y][x] = 20;
+                                        field[y][x] = 23;
                                     }
                                 }
                             }
@@ -132,7 +132,7 @@ class Reversi {
                                     if (field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
-                                        field[y][x] = 20;
+                                        field[y][x] = 24;
                                     }
                                 }
                             }
@@ -147,7 +147,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 25;
                                         }
                                     }
                                 }
@@ -157,7 +157,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 26;
                                         }
                                     }
                                 }
@@ -167,7 +167,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 27;
                                         }
                                     }
                                 }
@@ -183,7 +183,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 28;
                                         }
                                     }
                                 }
@@ -193,7 +193,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 29;
                                         }
                                     }
                                 }
@@ -203,7 +203,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 31;
                                         }
                                     }
                                 }
@@ -219,7 +219,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 32;
                                         }
                                     }
                                 }
@@ -229,7 +229,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 33;
                                         }
                                     }
                                 }
@@ -239,7 +239,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 34;
                                         }
                                     }
                                 }
@@ -255,7 +255,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 35;
                                         }
                                     }
                                 }
@@ -265,7 +265,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 36;
                                         }
                                     }
                                 }
@@ -275,7 +275,7 @@ class Reversi {
                                         if (field[y][x] != 20) {
                                             xPathList.add(x);
                                             yPathList.add(y);
-                                            field[y][x] = 20;
+                                            field[y][x] = 37;
                                         }
                                     }
                                 }
