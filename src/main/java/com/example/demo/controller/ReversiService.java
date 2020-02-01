@@ -857,6 +857,7 @@ class ReversiService {
             messageList.add("正しく座標を入力してください");
         }
         addPath(t);
+        messageList.add("あなたのターンです");
         // if (passCheck(f)) {
         // messageList.add("コンピュータが置く駒がありません");
         // messageList.add("コンピュータのターンをパスします");
