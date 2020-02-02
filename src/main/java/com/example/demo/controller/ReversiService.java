@@ -47,8 +47,6 @@ class ReversiService {
     }
 
     void addPath(int turn) {
-        int x = 0;
-        int y = 0;
         int f;
         if (turn == 11) {
             f = 10;
@@ -58,100 +56,100 @@ class ReversiService {
         xPathList.clear();
         yPathList.clear();
         clearFieldPath();
-        for (y = 1; y < 9; y++) {
-            for (x = 1; x < 9; x++) {
+        for (int y = 1; y < 9; y++) {
+            for (int x = 1; x < 9; x++) {
                 int xRight = 8 - x;
                 int xLeft = x - 1;
                 int yUp = y - 1;
                 int yDown = 8 - y;
-                if (field[y][x] == 0) {
+                if (findVoidPath(x, y)) {
                     // x右
                     if (xRight > 1) {
-                        if (!findVoidPath(x + 1, y) && field[y][x + 1] == f) {
-                            for (int i = 1; i < xRight + 1; i++) {
-                                if (!findVoidPath(x + i, y) && field[y][x + i] == turn) {
-                                    if (field[y][x] != 20) {
-                                        xPathList.add(x);
-                                        yPathList.add(y);
-                                        field[y][x] = 20;
-                                    }
+                        if (field[y][x + 1] == f) {
+                            for (int i = 2; i < xRight + 2; i++) {
+                                if (field[y][x + i] == turn) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                } else if (findVoidPath(x + i, y)) {
+                                    break;
                                 }
                             }
                         }
                     }
                     // x左
                     if (xLeft > 1) {
-                        if (!findVoidPath(x - 1, y) && field[y][x - 1] == f) {
-                            for (int i = 1; i < xLeft + 1; i++) {
-                                if (!findVoidPath(x - i, y) && field[y][x - i] == turn) {
-                                    if (field[y][x] != 20) {
-                                        xPathList.add(x);
-                                        yPathList.add(y);
-                                        field[y][x] = 20;
-                                    }
+                        if (field[y][x - 1] == f) {
+                            for (int i = 2; i < xLeft + 2; i++) {
+                                if (field[y][x - i] == turn) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                } else if (findVoidPath(x - i, y)) {
+                                    break;
                                 }
                             }
                         }
                     }
                     // y上
                     if (yUp > 1) {
-                        if (!findVoidPath(x, y - 1) && field[y - 1][x] == f) {
-                            for (int i = 1; i < yUp + 1; i++) {
-                                if (!findVoidPath(x, y - i) && field[y - i][x] == turn) {
-                                    if (field[y][x] != 20) {
-                                        xPathList.add(x);
-                                        yPathList.add(y);
-                                        field[y][x] = 20;
-                                    }
+                        if (field[y - 1][x] == f) {
+                            for (int i = 2; i < yUp + 2; i++) {
+                                if (field[y - i][x] == turn) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                } else if (findVoidPath(x, y - i)) {
+                                    break;
                                 }
                             }
                         }
                     }
                     // y下
                     if (yDown > 1) {
-                        if (!findVoidPath(x, y + 1) && field[y + 1][x] == f) {
-                            for (int i = 1; i < yDown + 1; i++) {
-                                if (!findVoidPath(x, y + i) && field[y + i][x] == turn) {
-                                    if (field[y][x] != 20) {
-                                        xPathList.add(x);
-                                        yPathList.add(y);
-                                        field[y][x] = 20;
-                                    }
+                        if (field[y + 1][x] == f) {
+                            for (int i = 2; i < yDown + 2; i++) {
+                                if (field[y + i][x] == turn) {
+                                    xPathList.add(x);
+                                    yPathList.add(y);
+                                    field[y][x] = 20;
+                                } else if (findVoidPath(x, y + i)) {
+                                    break;
                                 }
                             }
                         }
                     }
                     // y右上
                     if (yUp > 1 && xRight > 1) {
-                        if (!findVoidPath(x + 1, y - 1) && field[y - 1][x + 1] == f) {
+                        if (field[y - 1][x + 1] == f) {
                             if (xRight > yUp) {
-                                for (int i = 1; i < yUp + 1; i++) {
-                                    if (!findVoidPath(x + i, y - i) && field[y - i][x + i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < yUp + 2; i++) {
+                                    if (field[y - i][x + i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x + i, y - i)) {
+                                        break;
                                     }
                                 }
                             } else if (xRight < yUp) {
-                                for (int i = 1; i < xRight + 1; i++) {
-                                    if (!findVoidPath(x + i, y - i) && field[y - i][x + i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xRight + 2; i++) {
+                                    if (field[y - i][x + i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x + i, y - i)) {
+                                        break;
                                     }
                                 }
                             } else {
-                                for (int i = 1; i < xRight + 1; i++) {
-                                    if (!findVoidPath(x + i, y - i) && field[y - i][x + i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xRight + 2; i++) {
+                                    if (field[y - i][x + i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x + i, y - i)) {
+                                        break;
                                     }
                                 }
                             }
@@ -159,35 +157,35 @@ class ReversiService {
                     }
                     // y左上
                     if (yUp > 1 && xLeft > 1) {
-                        if (!findVoidPath(x - 1, y - 1) && field[y - 1][x - 1] == f) {
+                        if (field[y - 1][x - 1] == f) {
                             if (xLeft > yUp) {
-                                for (int i = 1; i < yUp + 1; i++) {
-                                    if (!findVoidPath(x - i, y - i) && field[y - i][x - i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < yUp + 2; i++) {
+                                    if (field[y - i][x - i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x - i, y - i)) {
+                                        break;
                                     }
                                 }
                             } else if (xLeft < yUp) {
-                                for (int i = 1; i < xLeft + 1; i++) {
-                                    if (!findVoidPath(x - i, y - i) && field[y - i][x - i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xLeft + 2; i++) {
+                                    if (field[y - i][x - i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x - i, y - i)) {
+                                        break;
                                     }
                                 }
                             } else {
-                                for (int i = 1; i < xLeft + 1; i++) {
-                                    if (!findVoidPath(x - i, y - i) && field[y - i][x - i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xLeft + 2; i++) {
+                                    if (field[y - i][x - i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x - i, y - i)) {
+                                        break;
                                     }
                                 }
                             }
@@ -195,35 +193,35 @@ class ReversiService {
                     }
                     // y右下
                     if (yDown > 1 && xRight > 1) {
-                        if (!findVoidPath(x + 1, y + 1) && field[y + 1][x + 1] == f) {
+                        if (field[y + 1][x + 1] == f) {
                             if (xRight > yDown) {
-                                for (int i = 1; i < yDown + 1; i++) {
-                                    if (!findVoidPath(x + i, y + i) && field[y + i][x + i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < yDown + 2; i++) {
+                                    if (field[y + i][x + i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x + i, y + i)) {
+                                        break;
                                     }
                                 }
                             } else if (xRight < yDown) {
-                                for (int i = 1; i < xRight + 1; i++) {
-                                    if (!findVoidPath(x + i, y + i) && field[y + i][x + i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xRight + 2; i++) {
+                                    if (field[y + i][x + i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x + i, y + i)) {
+                                        break;
                                     }
                                 }
                             } else {
-                                for (int i = 1; i < xRight + 1; i++) {
-                                    if (!findVoidPath(x + i, y + i) && field[y + i][x + i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xRight + 2; i++) {
+                                    if (field[y + i][x + i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x + i, y + i)) {
+                                        break;
                                     }
                                 }
                             }
@@ -231,35 +229,35 @@ class ReversiService {
                     }
                     // y左下
                     if (yDown > 1 && xLeft > 1) {
-                        if (!findVoidPath(x - 1, y + 1) && field[y + 1][x - 1] == f) {
+                        if (field[y + 1][x - 1] == f) {
                             if (xLeft > yDown) {
-                                for (int i = 1; i < yDown + 1; i++) {
-                                    if (!findVoidPath(x - i, y + i) && field[y + i][x - i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < yDown + 2; i++) {
+                                    if (field[y + i][x - i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x - i, y + i)) {
+                                        break;
                                     }
                                 }
                             } else if (xLeft < yDown) {
-                                for (int i = 1; i < xLeft + 1; i++) {
-                                    if (!findVoidPath(x - i, y + i) && field[y + i][x - i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xLeft + 2; i++) {
+                                    if (field[y + i][x - i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x - i, y + i)) {
+                                        break;
                                     }
                                 }
                             } else {
-                                for (int i = 1; i < xLeft + 1; i++) {
-                                    if (!findVoidPath(x - i, y + i) && field[y + i][x - i] == turn) {
-                                        if (field[y][x] != 20) {
-                                            xPathList.add(x);
-                                            yPathList.add(y);
-                                            field[y][x] = 20;
-                                        }
+                                for (int i = 2; i < xLeft + 2; i++) {
+                                    if (field[y + i][x - i] == turn) {
+                                        xPathList.add(x);
+                                        yPathList.add(y);
+                                        field[y][x] = 20;
+                                    } else if (findVoidPath(x - i, y + i)) {
+                                        break;
                                     }
                                 }
                             }
@@ -288,7 +286,7 @@ class ReversiService {
             for (int i = 1; i < xRight + 1; i++) {
                 if (field[y][x + i] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x + k, y) && field[y][x + k] == f) {
+                        if (field[y][x + k] == f) {
                             field[y][x + k] = turn;
                         }
                     }
@@ -299,7 +297,7 @@ class ReversiService {
             for (int i = 1; i < xLeft + 1; i++) {
                 if (field[y][x - i] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x - k, y) && field[y][x - k] == f) {
+                        if (field[y][x - k] == f) {
                             field[y][x - k] = turn;
                         }
                     }
@@ -311,7 +309,7 @@ class ReversiService {
             for (int i = 1; i < xLeft + 1; i++) {
                 if (field[y][x - i] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x - k, y) && field[y][x - k] == f) {
+                        if (field[y][x - k] == f) {
                             field[y][x - k] = turn;
                         }
                     }
@@ -322,7 +320,7 @@ class ReversiService {
             for (int i = 1; i < xRight + 1; i++) {
                 if (field[y][x + i] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x + k, y) && field[y][x + k] == f) {
+                        if (field[y][x + k] == f) {
                             field[y][x + k] = turn;
                         }
                     }
@@ -335,7 +333,7 @@ class ReversiService {
             for (int i = 1; i < yDown + 1; i++) {
                 if (field[y + i][x] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x, y + k) && field[y + k][x] == f) {
+                        if (field[y + k][x] == f) {
                             field[y + k][x] = turn;
                         }
                     }
@@ -346,7 +344,7 @@ class ReversiService {
             for (int i = 1; i < yUp + 1; i++) {
                 if (field[y - i][x] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x, y - k) && field[y - k][x] == f) {
+                        if (field[y - k][x] == f) {
                             field[y - k][x] = turn;
                         }
                     }
@@ -358,7 +356,7 @@ class ReversiService {
             for (int i = 1; i < yUp + 1; i++) {
                 if (field[y - i][x] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x, y - k) && field[y - k][x] == f) {
+                        if (field[y - k][x] == f) {
                             field[y - k][x] = turn;
                         }
                     }
@@ -369,7 +367,7 @@ class ReversiService {
             for (int i = 1; i < yDown + 1; i++) {
                 if (field[y + i][x] == turn) {
                     for (int k = 1; k < i; k++) {
-                        if (!findVoidPath(x, y + k) && field[y + k][x] == f) {
+                        if (field[y + k][x] == f) {
                             field[y + k][x] = turn;
                         }
                     }
@@ -385,7 +383,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y + i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y + k) && field[y + k][x - k] == f) {
+                            if (field[y + k][x - k] == f) {
                                 field[y + k][x - k] = turn;
                             }
                         }
@@ -396,7 +394,7 @@ class ReversiService {
                 for (int i = 1; i < yDown + 1; i++) {
                     if (field[y + i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y + k) && field[y + k][x - k] == f) {
+                            if (field[y + k][x - k] == f) {
                                 field[y + k][x - k] = turn;
                             }
                         }
@@ -407,7 +405,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y + i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y + k) && field[y + k][x - k] == f) {
+                            if (field[y + k][x - k] == f) {
                                 field[y + k][x - k] = turn;
                             }
                         }
@@ -420,7 +418,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y + i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y + k) && field[y + k][x + k] == f) {
+                            if (field[y + k][x + k] == f) {
                                 field[y + k][x + k] = turn;
                             }
                         }
@@ -431,7 +429,7 @@ class ReversiService {
                 for (int i = 1; i < yDown + 1; i++) {
                     if (field[y + i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y + k) && field[y + k][x + k] == f) {
+                            if (field[y + k][x + k] == f) {
                                 field[y + k][x + k] = turn;
                             }
                         }
@@ -442,7 +440,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y + i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y + k) && field[y + k][x + k] == f) {
+                            if (field[y + k][x + k] == f) {
                                 field[y + k][x + k] = turn;
                             }
                         }
@@ -456,7 +454,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y - i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y - k) && field[y - k][x + k] == f) {
+                            if (field[y - k][x + k] == f) {
                                 field[y - k][x + k] = turn;
                             }
                         }
@@ -467,7 +465,7 @@ class ReversiService {
                 for (int i = 1; i < yUp + 1; i++) {
                     if (field[y - i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y - k) && field[y - k][x + k] == f) {
+                            if (field[y - k][x + k] == f) {
                                 field[y - k][x + k] = turn;
                             }
                         }
@@ -478,7 +476,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y - i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y - k) && field[y - k][x + k] == f) {
+                            if (field[y - k][x + k] == f) {
                                 field[y - k][x + k] = turn;
                             }
                         }
@@ -491,7 +489,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y - i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y - k) && field[y - k][x - k] == f) {
+                            if (field[y - k][x - k] == f) {
                                 field[y - k][x - k] = turn;
                             }
                         }
@@ -502,7 +500,7 @@ class ReversiService {
                 for (int i = 1; i < yUp + 1; i++) {
                     if (field[y - i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y - k) && field[y - k][x - k] == f) {
+                            if (field[y - k][x - k] == f) {
                                 field[y - k][x - k] = turn;
                             }
                         }
@@ -513,7 +511,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y - i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y - k) && field[y - k][x - k] == f) {
+                            if (field[y - k][x - k] == f) {
                                 field[y - k][x - k] = turn;
                             }
                         }
@@ -527,7 +525,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y + i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y + k) && field[y + k][x - k] == f) {
+                            if (field[y + k][x - k] == f) {
                                 field[y + k][x - k] = turn;
                             }
                         }
@@ -538,7 +536,7 @@ class ReversiService {
                 for (int i = 1; i < yDown + 1; i++) {
                     if (field[y + i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y + k) && field[y + k][x - k] == f) {
+                            if (field[y + k][x - k] == f) {
                                 field[y + k][x - k] = turn;
                             }
                         }
@@ -549,7 +547,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y + i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y + k) && field[y + k][x - k] == f) {
+                            if (field[y + k][x - k] == f) {
                                 field[y + k][x - k] = turn;
                             }
                         }
@@ -562,7 +560,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y + i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y + k) && field[y + k][x + k] == f) {
+                            if (field[y + k][x + k] == f) {
                                 field[y + k][x + k] = turn;
                             }
                         }
@@ -573,7 +571,7 @@ class ReversiService {
                 for (int i = 1; i < yDown + 1; i++) {
                     if (field[y + i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y + k) && field[y + k][x + k] == f) {
+                            if (field[y + k][x + k] == f) {
                                 field[y + k][x + k] = turn;
                             }
                         }
@@ -584,7 +582,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y + i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y + k) && field[y + k][x + k] == f) {
+                            if (field[y + k][x + k] == f) {
                                 field[y + k][x + k] = turn;
                             }
                         }
@@ -597,7 +595,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y - i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y - k) && field[y - k][x + k] == f) {
+                            if (field[y - k][x + k] == f) {
                                 field[y - k][x + k] = turn;
                             }
                         }
@@ -608,7 +606,7 @@ class ReversiService {
                 for (int i = 1; i < yUp + 1; i++) {
                     if (field[y - i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y - k) && field[y - k][x + k] == f) {
+                            if (field[y - k][x + k] == f) {
                                 field[y - k][x + k] = turn;
                             }
                         }
@@ -619,7 +617,7 @@ class ReversiService {
                 for (int i = 1; i < xRight + 1; i++) {
                     if (field[y - i][x + i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x + k, y - k) && field[y - k][x + k] == f) {
+                            if (field[y - k][x + k] == f) {
                                 field[y - k][x + k] = turn;
                             }
                         }
@@ -632,7 +630,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y - i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y - k) && field[y - k][x - k] == f) {
+                            if (field[y - k][x - k] == f) {
                                 field[y - k][x - k] = turn;
                             }
                         }
@@ -643,7 +641,7 @@ class ReversiService {
                 for (int i = 1; i < yUp + 1; i++) {
                     if (field[y - i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y - k) && field[y - k][x - k] == f) {
+                            if (field[y - k][x - k] == f) {
                                 field[y - k][x - k] = turn;
                             }
                         }
@@ -654,7 +652,7 @@ class ReversiService {
                 for (int i = 1; i < xLeft + 1; i++) {
                     if (field[y - i][x - i] == turn) {
                         for (int k = 1; k < i; k++) {
-                            if (!findVoidPath(x - k, y - k) && field[y - k][x - k] == f) {
+                            if (field[y - k][x - k] == f) {
                                 field[y - k][x - k] = turn;
                             }
                         }
