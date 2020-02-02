@@ -787,6 +787,7 @@ class ReversiService {
         try {
             if (findVoidPath(x, y)) {
                 checkField(x, y, t);
+                Thread.sleep(1000);
                 npcDo();
             } else {
                 messageList.add("正しい場所を選択してください");
@@ -795,6 +796,8 @@ class ReversiService {
         } catch (ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
             messageList.add("x" + x + "y" + y);
+        } catch (InterruptedException e) {
+            messageList.add("スリープエラー");
         }
     }
 
@@ -805,11 +808,6 @@ class ReversiService {
             f = 11;
         } else {
             f = 10;
-        }
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            messageList.add("スリープエラー");
         }
         if (passCheck(f)) {
             messageList.add("コンピュータが置く駒がありません");
