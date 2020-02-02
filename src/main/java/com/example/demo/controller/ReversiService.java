@@ -3,8 +3,6 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.io.StringWriter;
-import java.io.PrintWriter;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -802,11 +800,16 @@ class ReversiService {
 
     void npcDo() {
         int t = turn[0];
-        int f = 0;
+        int f;
         if (turn[0] == 10) {
             f = 11;
         } else {
             f = 10;
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            messageList.add("スリープエラー");
         }
         if (passCheck(f)) {
             messageList.add("コンピュータが置く駒がありません");
