@@ -786,6 +786,7 @@ class ReversiService {
         int t = turn[0];
         try {
             if (findVoidPath(x, y)) {
+                messageList.add("me:" + x + ":" + y);
                 checkField(x, y, t);
                 npcDo();
             } else {
@@ -815,7 +816,7 @@ class ReversiService {
             int a = rand.nextInt(xPathList.size());
             int NPCx = xPathList.get(a);
             int NPCy = yPathList.get(a);
-            messageList.add(NPCx + ":" + NPCy);
+            messageList.add("npc:" + NPCx + ":" + NPCy);
             try {
                 if (findVoidPath(NPCx, NPCy)) {
                     messageList.add("コンピュータのターン");
