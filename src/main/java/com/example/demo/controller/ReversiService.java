@@ -776,26 +776,19 @@ class ReversiService {
     }
 
     void putPiece(int xAxis, int yAxis) {
-        myDo(xAxis, yAxis);
-        if (winCheck()) {
-            sumField();
-        }
-    }
-
-    void myDo(int x, int y) {
         int t = turn[0];
         try {
-            if (findVoidPath(x, y)) {
-                messageList.add("me:" + x + ":" + y);
-                checkField(x, y, t);
+            if (findVoidPath(xAxis, yAxis)) {
+                checkField(xAxis, yAxis, t);
                 npcDo();
             } else {
                 messageList.add("正しい場所を選択してください");
-                messageList.add("x" + x + "y" + y);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
-            messageList.add("x" + x + "y" + y);
+        }
+        if (winCheck()) {
+            sumField();
         }
     }
 
@@ -811,15 +804,14 @@ class ReversiService {
             messageList.add("コンピュータが置く駒がありません");
             messageList.add("コンピュータのターンをパスします");
         } else {
+            messageList.add("コンピュータのターン");
             addPath(f);
             Random rand = new Random();
             int a = rand.nextInt(xPathList.size());
             int NPCx = xPathList.get(a);
             int NPCy = yPathList.get(a);
-            messageList.add("npc:" + NPCx + ":" + NPCy);
             try {
                 if (findVoidPath(NPCx, NPCy)) {
-                    messageList.add("コンピュータのターン");
                     checkField(NPCx, NPCy, f);
                 } else {
                     messageList.add("コンピュータ:もう一度やり直してください");
@@ -833,8 +825,8 @@ class ReversiService {
             messageList.add("自分のターンをパスします");
             npcDo();
         } else {
-            addPath(t);
             messageList.add("あなたのターンです");
+            addPath(t);
         }
     }
 
