@@ -817,8 +817,9 @@ class ReversiService {
             int NPCy = yPathList.get(a);
             try {
                 if (findVoidPath(NPCx, NPCy)) {
-                    checkField(NPCx, NPCy, f);
                     messageList.add("コンピュータのターン");
+                    messageList.add(NPCx + ":" + NPCy);
+                    checkField(NPCx, NPCy, f);
                 } else {
                     messageList.add("コンピュータ:もう一度やり直してください");
                 }
