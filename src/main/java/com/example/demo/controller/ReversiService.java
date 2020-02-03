@@ -815,10 +815,10 @@ class ReversiService {
             int a = rand.nextInt(xPathList.size());
             int NPCx = xPathList.get(a);
             int NPCy = yPathList.get(a);
+            messageList.add(NPCx + ":" + NPCy);
             try {
                 if (findVoidPath(NPCx, NPCy)) {
                     messageList.add("コンピュータのターン");
-                    messageList.add(NPCx + ":" + NPCy);
                     checkField(NPCx, NPCy, f);
                 } else {
                     messageList.add("コンピュータ:もう一度やり直してください");
