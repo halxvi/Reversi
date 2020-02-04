@@ -681,13 +681,15 @@ class ReversiService {
         return flag;
     }
 
-    void checkField(final int x, final int y, final int turn) {
+    boolean checkField(final int x, final int y, final int turn) {
         if (x > 0 && x < 9 && y > 0 && y < 9) {
             if (findVoidPath(x, y) && checkPath(x, y)) {
-                flip(x, y, turn);
+                return true;
+            } else {
+                return false;
             }
         } else {
-            messageList.add("正しく座標を入力してください");
+            return false;
         }
     }
 
@@ -785,8 +787,12 @@ class ReversiService {
         int t = turn[0];
         try {
             if (findVoidPath(xAxis, yAxis)) {
-                checkField(xAxis, yAxis, t);
-                npcDo();
+                if (checkField(xAxis, yAxis, t)) {
+                    flip(xAxis, yAxis, t);
+                    npcDo();
+                } else {
+                    messageList.add("正しい場所を選択してください");
+                }
             } else {
                 messageList.add("正しい場所を選択してください");
             }
@@ -819,7 +825,11 @@ class ReversiService {
             int NPCy = yPathList.get(a);
             try {
                 if (findVoidPath(NPCx, NPCy)) {
-                    checkField(NPCx, NPCy, f);
+                    if (checkField(NPCx, NPCy, f)) {
+                        flip(NPCx, NPCy, f);
+                    } else {
+                        messageList.add("コンピュータ:もう一度やり直してください");
+                    }
                 } else {
                     messageList.add("コンピュータ:もう一度やり直してください");
                 }
