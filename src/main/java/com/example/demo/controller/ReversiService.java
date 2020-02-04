@@ -694,6 +694,7 @@ class ReversiService {
     boolean passCheck(int turn) {
         boolean flag = false;
         addPath(turn);
+        messageList.add("" + turn + ":" + xPathList.size() + "");
         if (xPathList.size() == 0) {
             flag = true;
         }
