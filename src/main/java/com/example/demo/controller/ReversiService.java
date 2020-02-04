@@ -693,9 +693,8 @@ class ReversiService {
         }
     }
 
-    boolean passCheck(int turn) {
+    boolean passCheck() {
         boolean flag = false;
-        addPath(turn);
         if (xPathList.size() == 0) {
             flag = true;
         }
@@ -791,10 +790,8 @@ class ReversiService {
                     flip(xAxis, yAxis, t);
                     npcDo();
                 } else {
-                    messageList.add("正しい場所を選択してください1");
+                    messageList.add("正しい場所を選択してください");
                 }
-            } else {
-                messageList.add("正しい場所を選択してください2");
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
@@ -812,12 +809,12 @@ class ReversiService {
         } else {
             f = 10;
         }
-        if (passCheck(f)) {
+        addPath(f);
+        if (passCheck()) {
             messageList.add("コンピュータが置く駒がありません");
             messageList.add("コンピュータのターンをパスします");
         } else {
             messageList.add("コンピュータのターン");
-            addPath(f);
             a(f);
             Random rand = new Random();
             int a = rand.nextInt(xPathList.size());
@@ -837,7 +834,8 @@ class ReversiService {
                 messageList.add("コンピュータ：正しく座標を入力できませんでした");
             }
         }
-        if (passCheck(t)) {
+        addPath(t);
+        if (passCheck()) {
             messageList.add("自分が置く駒がありません");
             messageList.add("自分のターンをパスします");
             npcDo();
