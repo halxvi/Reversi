@@ -791,10 +791,10 @@ class ReversiService {
                     flip(xAxis, yAxis, t);
                     npcDo();
                 } else {
-                    messageList.add("正しい場所を選択してください");
+                    messageList.add("正しい場所を選択してください1");
                 }
             } else {
-                messageList.add("正しい場所を選択してください");
+                messageList.add("正しい場所を選択してください2");
             }
         } catch (ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
