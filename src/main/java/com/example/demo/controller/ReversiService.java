@@ -65,7 +65,7 @@ class ReversiService {
                     if (xRight > 1) {
                         if (field[y][x + 1] == f) {
                             for (int i = 1; i < xRight + 1; i++) {
-                                if (field[y][x + i] == turn) {
+                                if (field[y][x + i] == turn && field[y][x] != 20) {
                                     xPathList.add(x);
                                     yPathList.add(y);
                                     field[y][x] = 20;
@@ -79,7 +79,7 @@ class ReversiService {
                     if (xLeft > 1) {
                         if (field[y][x - 1] == f) {
                             for (int i = 1; i < xLeft + 1; i++) {
-                                if (field[y][x - i] == turn) {
+                                if (field[y][x - i] == turn && field[y][x] != 20) {
                                     xPathList.add(x);
                                     yPathList.add(y);
                                     field[y][x] = 20;
@@ -93,7 +93,7 @@ class ReversiService {
                     if (yUp > 1) {
                         if (field[y - 1][x] == f) {
                             for (int i = 1; i < yUp + 1; i++) {
-                                if (field[y - i][x] == turn) {
+                                if (field[y - i][x] == turn && field[y][x] != 20) {
                                     xPathList.add(x);
                                     yPathList.add(y);
                                     field[y][x] = 20;
@@ -107,7 +107,7 @@ class ReversiService {
                     if (yDown > 1) {
                         if (field[y + 1][x] == f) {
                             for (int i = 1; i < yDown + 1; i++) {
-                                if (field[y + i][x] == turn) {
+                                if (field[y + i][x] == turn && field[y][x] != 20) {
                                     xPathList.add(x);
                                     yPathList.add(y);
                                     field[y][x] = 20;
@@ -122,7 +122,7 @@ class ReversiService {
                         if (field[y - 1][x + 1] == f) {
                             if (xRight > yUp) {
                                 for (int i = 1; i < yUp + 1; i++) {
-                                    if (field[y - i][x + i] == turn) {
+                                    if (field[y - i][x + i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -132,7 +132,7 @@ class ReversiService {
                                 }
                             } else if (xRight < yUp) {
                                 for (int i = 1; i < xRight + 1; i++) {
-                                    if (field[y - i][x + i] == turn) {
+                                    if (field[y - i][x + i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -142,7 +142,7 @@ class ReversiService {
                                 }
                             } else {
                                 for (int i = 1; i < xRight + 1; i++) {
-                                    if (field[y - i][x + i] == turn) {
+                                    if (field[y - i][x + i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -158,7 +158,7 @@ class ReversiService {
                         if (field[y - 1][x - 1] == f) {
                             if (xLeft > yUp) {
                                 for (int i = 1; i < yUp + 1; i++) {
-                                    if (field[y - i][x - i] == turn) {
+                                    if (field[y - i][x - i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -168,7 +168,7 @@ class ReversiService {
                                 }
                             } else if (xLeft < yUp) {
                                 for (int i = 1; i < xLeft + 1; i++) {
-                                    if (field[y - i][x - i] == turn) {
+                                    if (field[y - i][x - i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -178,7 +178,7 @@ class ReversiService {
                                 }
                             } else {
                                 for (int i = 1; i < xLeft + 1; i++) {
-                                    if (field[y - i][x - i] == turn) {
+                                    if (field[y - i][x - i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -194,7 +194,7 @@ class ReversiService {
                         if (field[y + 1][x + 1] == f) {
                             if (xRight > yDown) {
                                 for (int i = 1; i < yDown + 1; i++) {
-                                    if (field[y + i][x + i] == turn) {
+                                    if (field[y + i][x + i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -204,7 +204,7 @@ class ReversiService {
                                 }
                             } else if (xRight < yDown) {
                                 for (int i = 1; i < xRight + 1; i++) {
-                                    if (field[y + i][x + i] == turn) {
+                                    if (field[y + i][x + i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -214,7 +214,7 @@ class ReversiService {
                                 }
                             } else {
                                 for (int i = 1; i < xRight + 1; i++) {
-                                    if (field[y + i][x + i] == turn) {
+                                    if (field[y + i][x + i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -230,7 +230,7 @@ class ReversiService {
                         if (field[y + 1][x - 1] == f) {
                             if (xLeft > yDown) {
                                 for (int i = 1; i < yDown + 1; i++) {
-                                    if (field[y + i][x - i] == turn) {
+                                    if (field[y + i][x - i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -240,7 +240,7 @@ class ReversiService {
                                 }
                             } else if (xLeft < yDown) {
                                 for (int i = 1; i < xLeft + 1; i++) {
-                                    if (field[y + i][x - i] == turn) {
+                                    if (field[y + i][x - i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
@@ -250,7 +250,7 @@ class ReversiService {
                                 }
                             } else {
                                 for (int i = 1; i < xLeft + 1; i++) {
-                                    if (field[y + i][x - i] == turn) {
+                                    if (field[y + i][x - i] == turn && field[y][x] != 20) {
                                         xPathList.add(x);
                                         yPathList.add(y);
                                         field[y][x] = 20;
