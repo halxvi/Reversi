@@ -694,7 +694,6 @@ class ReversiService {
     boolean passCheck(int turn) {
         boolean flag = false;
         addPath(turn);
-        a(turn);
         if (xPathList.size() == 0) {
             flag = true;
         }
@@ -813,6 +812,7 @@ class ReversiService {
         } else {
             messageList.add("コンピュータのターン");
             addPath(f);
+            a(f);
             Random rand = new Random();
             int a = rand.nextInt(xPathList.size());
             int NPCx = xPathList.get(a);
@@ -834,6 +834,7 @@ class ReversiService {
         } else {
             messageList.add("あなたのターンです");
             addPath(t);
+            a(t);
         }
     }
 
