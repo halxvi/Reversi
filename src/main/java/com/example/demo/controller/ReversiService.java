@@ -701,12 +701,6 @@ class ReversiService {
         return flag;
     }
 
-    void a(int turn) {
-        for (int i = 0; i < xPathList.size(); i++) {
-            messageList.add(turn + ":" + xPathList.get(i) + ":" + yPathList.get(i));
-        }
-    }
-
     boolean winCheck() {
         boolean flag = false;
         int counter = 0;
@@ -796,10 +790,6 @@ class ReversiService {
         } catch (ArrayIndexOutOfBoundsException e) {
             messageList.add("座標外です");
         }
-        if (winCheck()) {
-            sumField();
-            return;
-        }
     }
 
     void npcDo() {
@@ -812,15 +802,18 @@ class ReversiService {
         }
         addPath(f);
         if (passCheck()) {
-            messageList.add("コンピュータが置く駒がありません");
-            messageList.add("コンピュータのターンをパスします");
             if (winCheck()) {
                 sumField();
                 return;
             }
+            messageList.add("コンピュータが置く駒がありません");
+            messageList.add("コンピュータのターンをパスします");
         } else {
+            if (winCheck()) {
+                sumField();
+                return;
+            }
             messageList.add("コンピュータのターン");
-            a(f);
             Random rand = new Random();
             int a = rand.nextInt(xPathList.size());
             int NPCx = xPathList.get(a);
@@ -841,17 +834,20 @@ class ReversiService {
         }
         addPath(t);
         if (passCheck()) {
-            messageList.add("自分が置く駒がありません");
-            messageList.add("自分のターンをパスします");
             if (winCheck()) {
                 sumField();
                 return;
             }
+            messageList.add("自分が置く駒がありません");
+            messageList.add("自分のターンをパスします");
             npcDo();
         } else {
+            if (winCheck()) {
+                sumField();
+                return;
+            }
             messageList.add("あなたのターンです");
             addPath(t);
-            a(t);
         }
     }
 
