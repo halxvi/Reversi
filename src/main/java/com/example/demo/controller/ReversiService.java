@@ -798,6 +798,7 @@ class ReversiService {
         }
         if (winCheck()) {
             sumField();
+            return;
         }
     }
 
@@ -813,6 +814,10 @@ class ReversiService {
         if (passCheck()) {
             messageList.add("コンピュータが置く駒がありません");
             messageList.add("コンピュータのターンをパスします");
+            if (winCheck()) {
+                sumField();
+                return;
+            }
         } else {
             messageList.add("コンピュータのターン");
             a(f);
@@ -838,6 +843,10 @@ class ReversiService {
         if (passCheck()) {
             messageList.add("自分が置く駒がありません");
             messageList.add("自分のターンをパスします");
+            if (winCheck()) {
+                sumField();
+                return;
+            }
             npcDo();
         } else {
             messageList.add("あなたのターンです");
