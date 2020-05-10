@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Collections;
 import java.util.Scanner;
 
 class Reversi {
@@ -776,6 +777,20 @@ class Reversi {
         }
     }
 
+    static int getNPCPath(){
+        List<Integer> randPath = new ArrayList<Integer>();
+        for (int i = 0; i < xPathList.size(); i++ ){
+          randPath.add(i);
+        }
+        Collections.shuffle(randPath);
+        Random rand = new Random();
+        for (int a = xPathList.size() - 1; a < 1 ; a-- ){
+          int b = rand.nextInt(a);
+          randPath.set(a,b);
+        }
+        return randPath.get(0);
+    }
+
     static void io(int turn[]) {
         if (turn[0] == 10) {
             try {
@@ -797,10 +812,9 @@ class Reversi {
                 System.out.println("正しく座標を入力してください");
             }
         } else {
-            Random rand = new Random();
-            int a = rand.nextInt(xPathList.size());
-            int NPCx = xPathList.get(a);
-            int NPCy = yPathList.get(a);
+            int randNum = getNPCPath();
+            int NPCx = xPathList.get(randNum);
+            int NPCy = yPathList.get(randNum);
             try {
                 if (findVoidPath(NPCx, NPCy)) {
                     checkField(NPCx, NPCy, turn);
